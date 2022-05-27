@@ -1,5 +1,9 @@
+import FilmCard from '../film-card/film-card';
+
 function App(): JSX.Element {
-  return <p>Hello, world!</p>;
+  return (
+    <FilmCard/>
+  );
 }
 
 export default App;

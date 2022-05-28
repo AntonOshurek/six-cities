@@ -1,16 +1,28 @@
-function FilmCardInfo(): JSX.Element {
+type FilmCardObject = {
+  bg: string,
+  poster: string,
+  title: string,
+  genre: string,
+  year: number,
+};
+
+type FilmCardProps = {
+  filmCard: FilmCardObject,
+}
+
+function FilmCardInfo({filmCard} : FilmCardProps): JSX.Element {
 
   return (
     <div className="film-card__info">
       <div className="film-card__poster">
-        <img src="img/the-grand-budapest-hotel-poster.jpg" alt="The Grand Budapest Hotel poster" width="218" height="327" />
+        <img src={filmCard.poster} alt={filmCard.title} width="218" height="327" />
       </div>
 
       <div className="film-card__desc">
-        <h2 className="film-card__title">The Grand Budapest Hotel</h2>
+        <h2 className="film-card__title">{filmCard.title}</h2>
         <p className="film-card__meta">
-          <span className="film-card__genre">Drama</span>
-          <span className="film-card__year">2014</span>
+          <span className="film-card__genre">{filmCard.genre}</span>
+          <span className="film-card__year">20{filmCard.year}14</span>
         </p>
 
         <div className="film-card__buttons">

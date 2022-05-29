@@ -4,6 +4,7 @@ import MainPage from '../../pages/main-page';
 import MyList from '../../pages/my-list';
 import Login from '../../pages/login';
 import MoviePage from '../../pages/movie-page';
+import MovieReviewPage from '../../pages/movie-review-page';
 
 import { FilmCardData } from '../../types/film-card-types';
 
@@ -20,6 +21,7 @@ function App({filmCard}: AppProps): JSX.Element {
         <Route path='/mylist' element={<MyList/>} />
         <Route path='/login' element={<Login/>} />
         <Route path='/films/:id' element={<MoviePage/>} />
+        <Route path='/films/:id/review' element={<MovieReviewPage/>} />
       </Routes>
     </BrowserRouter>
   );

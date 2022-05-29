@@ -1,9 +1,7 @@
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 
-// import FilmCard from '../film-card/film-card';
-import MainPage from '../pages/main-page';
-// import PageContent from '../page-content/page-content';
-{/* <PageContent/> */}
+import MainPage from '../../pages/main-page';
+import MyList from '../../pages/my-list';
 
 
 type FilmCardObject = {
@@ -23,13 +21,8 @@ function App({filmCard}: AppProps): JSX.Element {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<MainPage filmCard={filmCard}/> }>
-
-
-        </Route>
-        <Route>
-
-        </Route>
+        <Route path='/' element={<MainPage filmCard={filmCard}/> } />
+        <Route path='/mylist' element={<MyList/>} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,5 +1,5 @@
-import FilmCard from '../film-card/film-card';
-import PageContent from '../page-content/page-content';
+import FilmCard from '../components/film-card/film-card';
+import PageContent from '../components/page-content/page-content';
 
 type FilmCardObject = {
   bg: string,

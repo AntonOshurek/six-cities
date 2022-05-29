@@ -1,7 +1,10 @@
-import { films } from '../../data/films-data';
 import type { Film } from '../../data/films-data';
 
-function CatalogFilmList(): JSX.Element {
+type CatalogFilmListProps = {
+  films: Film[],
+}
+
+function CatalogFilmList({films}:CatalogFilmListProps): JSX.Element {
 
   function renderItems (filmsItems:Film[]): object {
     const result = filmsItems.map((item) => (

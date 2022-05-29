@@ -2,15 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/app/app';
 
-type FilmCardObject = {
-  bg: string,
-  poster: string,
-  title: string,
-  genre: string,
-  year: number,
-};
+import { FilmCardData } from './types/film-card-types';
 
-const filmCard:FilmCardObject = {
+const filmCard:FilmCardData = {
   bg: 'img/bg-the-grand-budapest-hotel.jpg',
   poster: 'img/the-grand-budapest-hotel-poster.jpg',
   title: 'The Grand Budapest Hotel',

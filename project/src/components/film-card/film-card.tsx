@@ -1,16 +1,10 @@
 import Logo from '../logo/logo';
 import UserBlock from '../user-block/user-block';
 
-type FilmCardObject = {
-  bg: string,
-  poster: string,
-  title: string,
-  genre: string,
-  year: number,
-};
+import { FilmCardData } from '../../types/film-card-types';
 
 type FilmCardProps = {
-  filmCard: FilmCardObject,
+  filmCard: FilmCardData,
 }
 
 function FilmCard({filmCard}: FilmCardProps): JSX.Element {
@@ -38,7 +32,7 @@ function FilmCard({filmCard}: FilmCardProps): JSX.Element {
             <h2 className="film-card__title">{filmCard.title}</h2>
             <p className="film-card__meta">
               <span className="film-card__genre">{filmCard.genre}</span>
-              <span className="film-card__year">20{filmCard.year}14</span>
+              <span className="film-card__year">{filmCard.year}</span>
             </p>
 
             <div className="film-card__buttons">

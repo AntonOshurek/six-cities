@@ -1,16 +1,10 @@
 import FilmCard from '../components/film-card/film-card';
 import PageContent from '../components/page-content/page-content';
 
-type FilmCardObject = {
-  bg: string,
-  poster: string,
-  title: string,
-  genre: string,
-  year: number,
-};
+import { FilmCardData } from '../types/film-card-types';
 
 type MainPageProps = {
-  filmCard: FilmCardObject,
+  filmCard: FilmCardData,
 }
 
 function MainPage({filmCard}: MainPageProps): JSX.Element {

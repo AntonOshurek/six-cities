@@ -4,17 +4,10 @@ import MainPage from '../../pages/main-page';
 import MyList from '../../pages/my-list';
 import Login from '../../pages/login';
 
-
-type FilmCardObject = {
-  bg: string,
-  poster: string,
-  title: string,
-  genre: string,
-  year: number,
-};
+import { FilmCardData } from '../../types/film-card-types';
 
 type AppProps = {
-  filmCard: FilmCardObject,
+  filmCard: FilmCardData,
 }
 
 function App({filmCard}: AppProps): JSX.Element {

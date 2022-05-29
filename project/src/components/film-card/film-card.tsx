@@ -1,6 +1,7 @@
-import Header from '../header/header';
 import FilmCardBg from '../film-card-bg/film-card-bg';
 import FilmCardInfo from '../film-card-info/film-card-info';
+import Logo from '../logo/logo';
+import UserBlock from '../user-block/user-block';
 
 type FilmCardObject = {
   bg: string,
@@ -22,7 +23,10 @@ function FilmCard({filmCard}: FilmCardProps): JSX.Element {
 
       <h1 className="visually-hidden">WTW</h1>
 
-      <Header/>
+      <header className="page-header film-card__head">
+        <Logo />
+        <UserBlock/>
+      </header>
 
       <div className="film-card__wrap">
         <FilmCardInfo filmCard={filmCard}/>

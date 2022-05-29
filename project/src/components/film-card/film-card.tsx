@@ -1,4 +1,3 @@
-import FilmCardBg from '../film-card-bg/film-card-bg';
 import FilmCardInfo from '../film-card-info/film-card-info';
 import Logo from '../logo/logo';
 import UserBlock from '../user-block/user-block';
@@ -19,7 +18,9 @@ function FilmCard({filmCard}: FilmCardProps): JSX.Element {
   return (
     <section className="film-card">
 
-      <FilmCardBg background={filmCard.bg}/>
+      <div className="film-card__bg">
+        <img src={filmCard.bg} alt="The Grand Budapest Hotel" />
+      </div>
 
       <h1 className="visually-hidden">WTW</h1>
 

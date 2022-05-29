@@ -1,25 +1,31 @@
-import FilmCard from '../film-card/film-card';
-import PageContent from '../page-content/page-content';
+import { Route, Routes, BrowserRouter } from 'react-router-dom';
 
-type FilmCardObject = {
-  bg: string,
-  poster: string,
-  title: string,
-  genre: string,
-  year: number,
-};
+import MainPage from '../../pages/main-page';
+import MyList from '../../pages/my-list';
+import Login from '../../pages/login';
+import MoviePage from '../../pages/movie-page';
+import MovieReviewPage from '../../pages/movie-review-page';
+import Player from '../../pages/player';
+
+import { FilmCardData } from '../../types/film-card-types';
 
 type AppProps = {
-  filmCard: FilmCardObject,
+  filmCard: FilmCardData,
 }
 
 function App({filmCard}: AppProps): JSX.Element {
 
   return (
-    <>
-      <FilmCard filmCard={filmCard}/>
-      <PageContent/>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<MainPage filmCard={filmCard}/> } />
+        <Route path='/mylist' element={<MyList/>} />
+        <Route path='/login' element={<Login/>} />
+        <Route path='/films/:id' element={<MoviePage/>} />
+        <Route path='/films/:id/review' element={<MovieReviewPage/>} />
+        <Route path='/player/:id' element={<Player/>} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

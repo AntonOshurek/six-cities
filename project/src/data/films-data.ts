@@ -5,7 +5,67 @@ type Film = {
   key: number,
 }
 
-const films: Film[] = [
+const moreLikeFilms: Film[] = [
+  {
+    img: 'img/dardjeeling-limited.jpg',
+    title: 'Dardjeeling Limited',
+    link: 'film-page.html',
+    key: 117,
+  },
+  {
+    img: 'img/orlando.jpg',
+    title: 'Orlando',
+    link: 'film-page.html',
+    key: 118,
+  },
+  {
+    img: 'img/mindhunter.jpg',
+    title: 'Mindhunter',
+    link: 'film-page.html',
+    key: 119,
+  },
+  {
+    img: 'img/midnight-special.jpg',
+    title: 'Midnight Special',
+    link: 'film-page.html',
+    key: 120,
+  },
+];
+
+const myFilms: Film[] = [
+  {
+    img: 'img/fantastic-beasts-the-crimes-of-grindelwald.jpg',
+    title: 'Fantastic Beasts: The Crimes of Grindelwald',
+    link: 'film-page.html',
+    key: 101,
+  },
+  {
+    img: 'img/bohemian-rhapsody.jpg',
+    title: 'Bohemian Rhapsody',
+    link: 'film-page.html',
+    key: 102,
+  },
+  {
+    img: 'img/macbeth.jpg',
+    title: 'Macbeth',
+    link: 'film-page.html',
+    key: 103,
+  },
+  {
+    img: 'img/aviator.jpg',
+    title: 'Aviator',
+    link: 'film-page.html',
+    key: 104,
+  },
+  {
+    img: 'img/we-need-to-talk-about-kevin.jpg',
+    title: 'We need to talk about Kevin',
+    link: 'film-page.html',
+    key: 105,
+  },
+];
+
+const allFilms: Film[] = [
   {
     img: 'img/fantastic-beasts-the-crimes-of-grindelwald.jpg',
     title: 'Fantastic Beasts: The Crimes of Grindelwald',
@@ -128,5 +188,5 @@ const films: Film[] = [
   },
 ];
 
-export { films };  export type { Film };
-
+export { allFilms, moreLikeFilms, myFilms };
+export type { Film };

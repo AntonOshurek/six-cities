@@ -5,6 +5,33 @@ type Film = {
   key: number,
 }
 
+const moreLikeFilms: Film[] = [
+  {
+    img: 'img/dardjeeling-limited.jpg',
+    title: 'Dardjeeling Limited',
+    link: 'film-page.html',
+    key: 117,
+  },
+  {
+    img: 'img/orlando.jpg',
+    title: 'Orlando',
+    link: 'film-page.html',
+    key: 118,
+  },
+  {
+    img: 'img/mindhunter.jpg',
+    title: 'Mindhunter',
+    link: 'film-page.html',
+    key: 119,
+  },
+  {
+    img: 'img/midnight-special.jpg',
+    title: 'Midnight Special',
+    link: 'film-page.html',
+    key: 120,
+  },
+];
+
 const myFilms: Film[] = [
   {
     img: 'img/fantastic-beasts-the-crimes-of-grindelwald.jpg',
@@ -161,6 +188,5 @@ const allFilms: Film[] = [
   },
 ];
 
-export { allFilms };  export type { Film };
-export { myFilms };
-
+export { allFilms, moreLikeFilms, myFilms };
+export type { Film };

@@ -1,5 +1,10 @@
-import FilmCard from '../film-card/film-card';
-import PageContent from '../page-content/page-content';
+import { Route, Routes, BrowserRouter } from 'react-router-dom';
+
+// import FilmCard from '../film-card/film-card';
+import MainPage from '../pages/main-page';
+// import PageContent from '../page-content/page-content';
+{/* <PageContent/> */}
+
 
 type FilmCardObject = {
   bg: string,
@@ -16,10 +21,17 @@ type AppProps = {
 function App({filmCard}: AppProps): JSX.Element {
 
   return (
-    <>
-      <FilmCard filmCard={filmCard}/>
-      <PageContent/>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<MainPage filmCard={filmCard}/> }>
+
+
+        </Route>
+        <Route>
+
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

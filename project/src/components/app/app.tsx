@@ -6,6 +6,7 @@ import Login from '../../pages/login';
 import MoviePage from '../../pages/movie-page';
 import MovieReviewPage from '../../pages/movie-review-page';
 import Player from '../../pages/player';
+import PrivateRoute from '../private-route/PrivateRoute';
 
 import { FilmCardData } from '../../types/film-card-types';
 import { AppRoute, AuthorizationStatus } from '../../consts/consts';
@@ -20,11 +21,18 @@ function App({filmCard}: AppProps): JSX.Element {
     <BrowserRouter>
       <Routes>
         <Route path={AppRoute.ROOT} element={<MainPage filmCard={filmCard}/> } />
-        <Route path='/mylist' element={<MyList/>} />
         <Route path='/login' element={<Login/>} />
         <Route path='/films/:id' element={<MoviePage/>} />
         <Route path='/films/:id/review' element={<MovieReviewPage/>} />
         <Route path='/player/:id' element={<Player/>} />
+        <Route
+          path={AppRoute.MY_LIST}
+          element={
+            <PrivateRoute authorizationStatus={AuthorizationStatus.NoAuth}>
+              <MyList/>
+            </PrivateRoute>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );

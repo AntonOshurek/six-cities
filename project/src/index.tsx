@@ -2,19 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/app/app';
 
-import { FilmCardData } from './types/film-card-types';
-
-const filmCard:FilmCardData = {
-  bg: 'img/bg-the-grand-budapest-hotel.jpg',
-  poster: 'img/the-grand-budapest-hotel-poster.jpg',
-  title: 'The Grand Budapest Hotel',
-  genre: 'Drama',
-  year: 2014,
-};
+import { allFilms, filmCard } from './data/films-data';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App filmCard={filmCard} />
+    <App filmCard={filmCard} allFilms={allFilms} />
   </React.StrictMode>,
   document.getElementById('root'));
 

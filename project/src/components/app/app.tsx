@@ -8,19 +8,22 @@ import MovieReviewPage from '../../pages/movie-review-page';
 import Player from '../../pages/player';
 import PrivateRoute from '../private-route/PrivateRoute';
 
-import { FilmCardData } from '../../types/film-card-types';
+import type { FilmCardData } from '../../types/film-types';
 import { AppRoute, AuthorizationStatus } from '../../consts/consts';
+
+import type { Film } from '../../types/film-types';
 
 type AppProps = {
   filmCard: FilmCardData,
+  allFilms: Film[],
 }
 
-function App({filmCard}: AppProps): JSX.Element {
+function App({filmCard, allFilms}: AppProps): JSX.Element {
 
   return (
     <BrowserRouter>
       <Routes>
-        <Route path={AppRoute.ROOT} element={<MainPage filmCard={filmCard}/> } />
+        <Route path={AppRoute.ROOT} element={<MainPage filmCard={filmCard} allFilms={allFilms}/> } />
         <Route path='/login' element={<Login/>} />
         <Route path='/films/:id' element={<MoviePage/>} />
         <Route path='/films/:id/review' element={<MovieReviewPage/>} />

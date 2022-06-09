@@ -1,4 +1,4 @@
-import type { Film } from '../../data/films-data';
+import type { Film } from '../../types/film-types';
 
 type CatalogFilmListProps = {
   films: Film[],
@@ -20,11 +20,11 @@ function CatalogFilmList({films}:CatalogFilmListProps): JSX.Element {
     return result;
   }
 
-  const items = renderItems(films);
+  const filmItems = renderItems(films);
 
   return (
     <div className="catalog__films-list">
-      {items}
+      {filmItems}
     </div>
   );
 }

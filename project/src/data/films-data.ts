@@ -1,4 +1,12 @@
-import type { Film } from '../types/film-types';
+import type { Film, FilmCardData } from '../types/film-types';
+
+const filmCard: FilmCardData = {
+  bg: 'img/bg-the-grand-budapest-hotel.jpg',
+  poster: 'img/the-grand-budapest-hotel-poster.jpg',
+  title: 'The Grand Budapest Hotel',
+  genre: 'Drama',
+  year: 2014,
+};
 
 const moreLikeFilms: Film[] = [
   {
@@ -183,5 +191,4 @@ const allFilms: Film[] = [
   },
 ];
 
-export { allFilms, moreLikeFilms, myFilms };
-export type { Film };
+export { allFilms, moreLikeFilms, myFilms, filmCard };

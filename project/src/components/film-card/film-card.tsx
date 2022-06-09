@@ -1,7 +1,7 @@
 import Logo from '../logo/logo';
 import UserBlock from '../user-block/user-block';
 
-import { FilmCardData } from '../../types/film-types';
+import type { FilmCardData } from '../../types/film-types';
 
 type FilmCardProps = {
   filmCard: FilmCardData,

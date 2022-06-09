@@ -1,4 +1,4 @@
-import type { Film } from '../../data/films-data';
+import type { Film } from '../../types/film-types';
 
 type CatalogFilmListProps = {
   films: Film[],

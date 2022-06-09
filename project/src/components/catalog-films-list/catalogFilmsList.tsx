@@ -20,11 +20,11 @@ function CatalogFilmList({films}:CatalogFilmListProps): JSX.Element {
     return result;
   }
 
-  const items = renderItems(films);
+  const filmItems = renderItems(films);
 
   return (
     <div className="catalog__films-list">
-      {items}
+      {filmItems}
     </div>
   );
 }

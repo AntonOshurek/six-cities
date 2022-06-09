@@ -1,9 +1,4 @@
-type Film = {
-  img: string,
-  title: string,
-  link: string,
-  key: number,
-}
+import type { Film } from '../types/film-types';
 
 const moreLikeFilms: Film[] = [
   {

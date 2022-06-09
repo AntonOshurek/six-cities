@@ -2,7 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/app/app';
 
-import { FilmCardData } from './types/film-card-types';
+import type { FilmCardData } from './types/film-types';
+import { allFilms } from './data/films-data';
+
 
 const filmCard:FilmCardData = {
   bg: 'img/bg-the-grand-budapest-hotel.jpg',
@@ -14,7 +16,7 @@ const filmCard:FilmCardData = {
 
 ReactDOM.render(
   <React.StrictMode>
-    <App filmCard={filmCard} />
+    <App filmCard={filmCard} allFilms={allFilms} />
   </React.StrictMode>,
   document.getElementById('root'));
 

@@ -15,7 +15,7 @@ function MoviePage(): JSX.Element {
 
   useEffect(() => {
     getMovie();
-  }, [id]);
+  });
 
   function getMovie(): void {
     allFilms.map((item) => {
@@ -23,8 +23,6 @@ function MoviePage(): JSX.Element {
         setCurrentFilm(item);
       }
     });
-    // eslint-disable-next-line no-console
-    console.log(currentFilm);
   }
 
   return(
@@ -44,7 +42,7 @@ function MoviePage(): JSX.Element {
 
           <div className="film-card__wrap">
             <div className="film-card__desc">
-              <h2 className="film-card__title">The Grand Budapest Hotel</h2>
+              <h2 className="film-card__title">{currentFilm?.title}</h2>
               <p className="film-card__meta">
                 <span className="film-card__genre">Drama</span>
                 <span className="film-card__year">2014</span>
@@ -72,7 +70,7 @@ function MoviePage(): JSX.Element {
         <div className="film-card__wrap film-card__translate-top">
           <div className="film-card__info">
             <div className="film-card__poster film-card__poster--big">
-              <img src="img/the-grand-budapest-hotel-poster.jpg" alt="The Grand Budapest Hotel poster" width="218" height="327" />
+              <img src={currentFilm?.img} alt="The Grand Budapest Hotel poster" width="218" height="327" />
             </div>
 
             <div className="film-card__desc">

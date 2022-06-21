@@ -10,7 +10,7 @@ type Film = {
   img: string,
   title: string,
   link: string,
-  key: number,
+  key: string,
 }
 
 export type { FilmCardData, Film };

@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+import { AppRoute } from '../../consts/consts';
 import type { Film } from '../../types/film-types';
 
 type CatalogFilmListProps = {
@@ -13,7 +15,7 @@ function CatalogFilmList({films}:CatalogFilmListProps): JSX.Element {
           <img src={item.img} alt={item.title} width="280" height="175" />
         </div>
         <h3 className="small-film-card__title">
-          <a className="small-film-card__link" href="film-page.html">{item.title}</a>
+          <Link className="small-film-card__link" to={AppRoute.MOVIE_PAGE}>{item.title}</Link>
         </h3>
       </article>
     ));

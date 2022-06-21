@@ -24,10 +24,10 @@ function App({filmCard, allFilms}: AppProps): JSX.Element {
     <BrowserRouter>
       <Routes>
         <Route path={AppRoute.ROOT} element={<MainPage filmCard={filmCard} allFilms={allFilms}/> } />
-        <Route path='/login' element={<Login/>} />
-        <Route path='/films/:id' element={<MoviePage/>} />
-        <Route path='/films/:id/review' element={<MovieReviewPage/>} />
-        <Route path='/player/:id' element={<Player/>} />
+        <Route path={AppRoute.LOGIN} element={<Login/>} />
+        <Route path={AppRoute.MOVIE_PAGE} element={<MoviePage/>} />
+        <Route path={AppRoute.MOVIE_REVIE_PAGE} element={<MovieReviewPage/>} />
+        <Route path={AppRoute.PLAYER} element={<Player/>} />
         <Route
           path={AppRoute.MY_LIST}
           element={

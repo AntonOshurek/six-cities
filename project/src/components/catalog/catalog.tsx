@@ -13,9 +13,9 @@ function Catalog({ allFilms }: CatalogProps): JSX.Element {
     <section className="catalog">
       <h2 className="catalog__title visually-hidden">Catalog</h2>
 
-      <CatalogGenresList/>
+      <CatalogGenresList />
       <CatalogFilmList films={allFilms} />
-      <CatalogMore/>
+      <CatalogMore />
     </section>
   );
 

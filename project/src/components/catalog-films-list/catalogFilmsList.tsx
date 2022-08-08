@@ -1,6 +1,8 @@
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 import type { Film } from '../../types/film-types';
+
+import SmallFilmCard from '../small-film-card/small-film-card';
 
 type CatalogFilmListProps = {
   films: Film[],
@@ -8,25 +10,11 @@ type CatalogFilmListProps = {
 
 function CatalogFilmList({films}:CatalogFilmListProps): JSX.Element {
 
-  function renderItems (filmsItems:Film[]): object {
-    const result = filmsItems.map((item) => (
-      <article className="small-film-card catalog__films-card" key={item.key}>
-        <div className="small-film-card__image">
-          <img src={item.img} alt={item.title} width="280" height="175" />
-        </div>
-        <h3 className="small-film-card__title">
-          <Link className="small-film-card__link" to={`/films/${item.key}`}>{item.title}</Link>
-        </h3>
-      </article>
-    ));
-    return result;
-  }
-
-  const filmItems = renderItems(films);
+  const filmsCardList: object = films.map((item) => (<SmallFilmCard filmItem={item} key={item.key}/>));
 
   return (
     <div className="catalog__films-list">
-      {filmItems}
+      {filmsCardList}
     </div>
   );
 }

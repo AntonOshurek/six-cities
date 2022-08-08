@@ -8,19 +8,26 @@ import PageFooter from '../components/page-footer/page-footer';
 
 import { moreLikeFilms, allFilms } from '../data/films-data';
 import type { Film } from '../types/film-types';
+// import { AppRoute } from '../consts/consts';
 
 function MoviePage(): JSX.Element {
-  const {id} = useParams();
+  // const filmIdFieldName = AppRoute.MOVIE_PAGE.split(':')[1];
+  const {filmId} = useParams();
   const [currentFilm, setCurrentFilm] = useState<Film>();
+
+  // eslint-disable-next-line no-console
+  // console.log(filmIdFieldName);
 
   useEffect(() => {
     getMovie();
-  });
+  }, []);
 
   function getMovie(): void {
     allFilms.map((item) => {
-      if(item.key === id) {
+      if(item.key === filmId) {
         setCurrentFilm(item);
+        // eslint-disable-next-line no-console
+        console.log(item);
       }
     });
   }

@@ -1,9 +1,7 @@
 import FilmCard from '../components/film-card/film-card';
 import PageContent from '../components/page-content/page-content';
-// import { allFilms } from '../data/films-data';
 
-import type { FilmCardData } from '../types/film-types';
-import type { Film } from '../types/film-types';
+import type { Film, FilmCardData } from '../types/film-types';
 
 type MainPageProps = {
   filmCard: FilmCardData,

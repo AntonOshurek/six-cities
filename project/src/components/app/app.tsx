@@ -8,10 +8,8 @@ import MovieReviewPage from '../../pages/movie-review-page';
 import Player from '../../pages/player';
 import PrivateRoute from '../private-route/PrivateRoute';
 
-import type { FilmCardData } from '../../types/film-types';
 import { AppRoute, AuthorizationStatus } from '../../consts/consts';
-
-import type { Film } from '../../types/film-types';
+import type { Film, FilmCardData } from '../../types/film-types';
 
 type AppProps = {
   filmCard: FilmCardData,

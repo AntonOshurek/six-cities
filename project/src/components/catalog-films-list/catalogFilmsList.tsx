@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-// import { AppRoute } from '../../consts/consts';
+
 import type { Film } from '../../types/film-types';
 
 type CatalogFilmListProps = {

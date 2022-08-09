@@ -31,7 +31,7 @@ function App({filmCard, allFilms}: AppProps): JSX.Element {
         <Route
           path={AppRoute.MY_LIST}
           element={
-            <PrivateRoute authorizationStatus={AuthorizationStatus.NoAuth}>
+            <PrivateRoute authorizationStatus={AuthorizationStatus.Auth}>
               <MyList/>
             </PrivateRoute>
           }

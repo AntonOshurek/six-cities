@@ -3,13 +3,13 @@ import { useEffect, useState } from 'react';
 
 import { Link } from 'react-router-dom';
 
-import CatalogFilmList from '../components/catalog-films-list/catalogFilmsList';
-import Logo from '../components/logo/logo';
-import UserBlock from '../components/user-block/user-block';
-import PageFooter from '../components/page-footer/page-footer';
+import CatalogFilmList from '../../components/catalog-films-list/catalogFilmsList';
+import Logo from '../../components/logo/logo';
+import UserBlock from '../../components/user-block/user-block';
+import PageFooter from '../../components/page-footer/page-footer';
 
-import { moreLikeFilms, allFilms } from '../data/films-data';
-import type { Film } from '../types/film-types';
+import { moreLikeFilms, allFilms } from '../../data/films-data';
+import type { Film } from '../../types/film-types';
 
 function MoviePage(): JSX.Element {
   const {filmId} = useParams();
@@ -82,7 +82,7 @@ function MoviePage(): JSX.Element {
                     <Link to={`/films/${filmId}`} className="film-nav__link">Overview</Link>
                   </li>
                   <li className="film-nav__item">
-                    <Link to={`/films/${filmId}/review`} className="film-nav__link">Details</Link>
+                    <Link to={`/films/${filmId}/details`} className="film-nav__link">Details</Link>
                   </li>
                   <li className="film-nav__item">
                     <Link to={`/films/${filmId}/review`} className="film-nav__link">Reviews</Link>

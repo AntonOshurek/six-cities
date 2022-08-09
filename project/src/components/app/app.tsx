@@ -3,8 +3,9 @@ import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import MainPage from '../../pages/main-page';
 import MyList from '../../pages/my-list';
 import Login from '../../pages/login';
-import MoviePage from '../../pages/movie-page';
-import MovieReviewPage from '../../pages/movie-review-page';
+import MoviePage from '../../pages/movie-pages/movie-page';
+import MovieReviewPage from '../../pages/movie-pages/movie-review-page';
+import MovieDetailsPage from '../../pages/movie-pages/movie-details-page';
 import Player from '../../pages/player';
 import PrivateRoute from '../private-route/PrivateRoute';
 
@@ -25,6 +26,7 @@ function App({filmCard, allFilms}: AppProps): JSX.Element {
         <Route path={AppRoute.LOGIN} element={<Login/>} />
         <Route path={AppRoute.MOVIE_PAGE} element={<MoviePage/>} />
         <Route path={AppRoute.MOVIE_REVIE_PAGE} element={<MovieReviewPage/>} />
+        <Route path={AppRoute.MOVIE_DETAILS_PAGE} element={<MovieDetailsPage/>} />
         <Route path={AppRoute.PLAYER} element={<Player/>} />
         <Route
           path={AppRoute.MY_LIST}

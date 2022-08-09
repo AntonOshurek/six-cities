@@ -3,13 +3,13 @@ import { useEffect, useState } from 'react';
 
 import { Link } from 'react-router-dom';
 
-import CatalogFilmList from '../components/catalog-films-list/catalogFilmsList';
-import Logo from '../components/logo/logo';
-import UserBlock from '../components/user-block/user-block';
-import PageFooter from '../components/page-footer/page-footer';
+import CatalogFilmList from '../../components/catalog-films-list/catalogFilmsList';
+import Logo from '../../components/logo/logo';
+import UserBlock from '../../components/user-block/user-block';
+import PageFooter from '../../components/page-footer/page-footer';
 
-import { moreLikeFilms, allFilms } from '../data/films-data';
-import type { Film } from '../types/film-types';
+import { moreLikeFilms, allFilms } from '../../data/films-data';
+import type { Film } from '../../types/film-types';
 
 function MovieReviewPage(): JSX.Element {
   const {filmId} = useParams();
@@ -72,7 +72,7 @@ function MovieReviewPage(): JSX.Element {
         <div className="film-card__wrap film-card__translate-top">
           <div className="film-card__info">
             <div className="film-card__poster film-card__poster--big">
-              <img src="img/the-grand-budapest-hotel-poster.jpg" alt="The Grand Budapest Hotel poster" width="218" height="327" />
+              <img src={currentFilm?.img} alt="The Grand Budapest Hotel poster" width="218" height="327" />
             </div>
 
             <div className="film-card__desc">
@@ -82,7 +82,7 @@ function MovieReviewPage(): JSX.Element {
                     <Link to={`/films/${filmId}`} className="film-nav__link">Overview</Link>
                   </li>
                   <li className="film-nav__item">
-                    <a href="test" className="film-nav__link">Details</a>
+                    <Link to={`/films/${filmId}/details`} className="film-nav__link">Details</Link>
                   </li>
                   <li className="film-nav__item film-nav__item--active">
                     <Link to={`/films/${filmId}/review`} className="film-nav__link">Reviews</Link>

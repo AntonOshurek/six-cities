@@ -1,13 +1,13 @@
-import Logo from '../logo/logo';
-import UserBlock from '../user-block/user-block';
+import Logo from '../../logo/logo';
+import UserBlock from '../../user-block/user-block';
 
-import type { FilmCardData } from '../../types/film-types';
+import type { FilmCardData } from '../../../types/film-types';
 
 type FilmCardProps = {
   filmCard: FilmCardData,
 }
 
-function FilmCard({filmCard}: FilmCardProps): JSX.Element {
+function MainFilmCard({filmCard}: FilmCardProps): JSX.Element {
   return (
     <section className="film-card">
 
@@ -56,4 +56,4 @@ function FilmCard({filmCard}: FilmCardProps): JSX.Element {
   );
 }
 
-export default FilmCard;
+export default MainFilmCard;

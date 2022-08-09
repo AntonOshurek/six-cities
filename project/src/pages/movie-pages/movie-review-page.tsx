@@ -1,17 +1,39 @@
-import CatalogFilmList from '../components/catalog-films-list/catalogFilmsList';
-import Logo from '../components/logo/logo';
-import UserBlock from '../components/user-block/user-block';
-import PageFooter from '../components/page-footer/page-footer';
+import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
-import { moreLikeFilms } from '../data/films-data';
+import { Link } from 'react-router-dom';
+
+import CatalogFilmList from '../../components/catalog-films-list/catalogFilmsList';
+import Logo from '../../components/logo/logo';
+import UserBlock from '../../components/user-block/user-block';
+import MovieFilmCard from '../../components/film-card/movie-film-card/movie-film-card';
+import PageFooter from '../../components/page-footer/page-footer';
+
+import { moreLikeFilms, allFilms } from '../../data/films-data';
+import type { Film } from '../../types/film-types';
 
 function MovieReviewPage(): JSX.Element {
+  const {filmId} = useParams();
+  const [currentFilm, setCurrentFilm] = useState<Film>();
+
+  useEffect(() => {
+    getMovie();
+  }, []);
+
+  function getMovie(): void {
+    allFilms.map((item) => {
+      if(item.key === filmId) {
+        setCurrentFilm(item);
+      }
+    });
+  }
+
   return(
     <>
       <section className="film-card film-card--full">
         <div className="film-card__hero">
           <div className="film-card__bg">
-            <img src="img/bg-the-grand-budapest-hotel.jpg" alt="The Grand Budapest Hotel" />
+            <img src="img/bg-the-grand-budapest-hotel.jpg" alt={currentFilm?.title} />
           </div>
 
           <h1 className="visually-hidden">WTW</h1>
@@ -21,50 +43,26 @@ function MovieReviewPage(): JSX.Element {
             <UserBlock />
           </header>
 
-          <div className="film-card__wrap">
-            <div className="film-card__desc">
-              <h2 className="film-card__title">The Grand Budapest Hotel</h2>
-              <p className="film-card__meta">
-                <span className="film-card__genre">Drama</span>
-                <span className="film-card__year">2014</span>
-              </p>
-
-              <div className="film-card__buttons">
-                <button className="btn btn--play film-card__button" type="button">
-                  <svg viewBox="0 0 19 19" width="19" height="19">
-                    <use xlinkHref="#play-s"></use>
-                  </svg>
-                  <span>Play</span>
-                </button>
-                <button className="btn btn--list film-card__button" type="button">
-                  <svg viewBox="0 0 19 20" width="19" height="20">
-                    <use xlinkHref="#add"></use>
-                  </svg>
-                  <span>My list</span>
-                </button>
-                <a href="add-review.html" className="btn film-card__button">Add review</a>
-              </div>
-            </div>
-          </div>
+          {currentFilm && <MovieFilmCard filmCardData={currentFilm}/>}
         </div>
 
         <div className="film-card__wrap film-card__translate-top">
           <div className="film-card__info">
             <div className="film-card__poster film-card__poster--big">
-              <img src="img/the-grand-budapest-hotel-poster.jpg" alt="The Grand Budapest Hotel poster" width="218" height="327" />
+              <img src={currentFilm?.img} alt="The Grand Budapest Hotel poster" width="218" height="327" />
             </div>
 
             <div className="film-card__desc">
               <nav className="film-nav film-card__nav">
                 <ul className="film-nav__list">
                   <li className="film-nav__item">
-                    <a href="test" className="film-nav__link">Overview</a>
+                    <Link to={`/films/${filmId}`} className="film-nav__link">Overview</Link>
                   </li>
                   <li className="film-nav__item">
-                    <a href="test" className="film-nav__link">Details</a>
+                    <Link to={`/films/${filmId}/details`} className="film-nav__link">Details</Link>
                   </li>
                   <li className="film-nav__item film-nav__item--active">
-                    <a href="test" className="film-nav__link">Reviews</a>
+                    <Link to={`/films/${filmId}/review`} className="film-nav__link">Reviews</Link>
                   </li>
                 </ul>
               </nav>

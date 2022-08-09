@@ -1,22 +1,20 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
-import CatalogFilmList from '../components/catalog-films-list/catalogFilmsList';
-import Logo from '../components/logo/logo';
-import UserBlock from '../components/user-block/user-block';
-import PageFooter from '../components/page-footer/page-footer';
+import { Link } from 'react-router-dom';
 
-import { moreLikeFilms, allFilms } from '../data/films-data';
-import type { Film } from '../types/film-types';
-// import { AppRoute } from '../consts/consts';
+import CatalogFilmList from '../../components/catalog-films-list/catalogFilmsList';
+import Logo from '../../components/logo/logo';
+import UserBlock from '../../components/user-block/user-block';
+import MovieFilmCard from '../../components/film-card/movie-film-card/movie-film-card';
+import PageFooter from '../../components/page-footer/page-footer';
+
+import { moreLikeFilms, allFilms } from '../../data/films-data';
+import type { Film } from '../../types/film-types';
 
 function MoviePage(): JSX.Element {
-  // const filmIdFieldName = AppRoute.MOVIE_PAGE.split(':')[1];
   const {filmId} = useParams();
   const [currentFilm, setCurrentFilm] = useState<Film>();
-
-  // eslint-disable-next-line no-console
-  // console.log(filmIdFieldName);
 
   useEffect(() => {
     getMovie();
@@ -26,12 +24,9 @@ function MoviePage(): JSX.Element {
     allFilms.map((item) => {
       if(item.key === filmId) {
         setCurrentFilm(item);
-        // eslint-disable-next-line no-console
-        console.log(item);
       }
     });
   }
-
   return(
     <>
       <section className="film-card film-card--full">
@@ -47,31 +42,7 @@ function MoviePage(): JSX.Element {
             <UserBlock />
           </header>
 
-          <div className="film-card__wrap">
-            <div className="film-card__desc">
-              <h2 className="film-card__title">{currentFilm?.title}</h2>
-              <p className="film-card__meta">
-                <span className="film-card__genre">Drama</span>
-                <span className="film-card__year">2014</span>
-              </p>
-
-              <div className="film-card__buttons">
-                <button className="btn btn--play film-card__button" type="button">
-                  <svg viewBox="0 0 19 19" width="19" height="19">
-                    <use xlinkHref="#play-s"></use>
-                  </svg>
-                  <span>Play</span>
-                </button>
-                <button className="btn btn--list film-card__button" type="button">
-                  <svg viewBox="0 0 19 20" width="19" height="20">
-                    <use xlinkHref="#add"></use>
-                  </svg>
-                  <span>My list</span>
-                </button>
-                <a href="add-review.html" className="btn film-card__button">Add review</a>
-              </div>
-            </div>
-          </div>
+          {currentFilm && <MovieFilmCard filmCardData={currentFilm}/>}
         </div>
 
         <div className="film-card__wrap film-card__translate-top">
@@ -84,13 +55,13 @@ function MoviePage(): JSX.Element {
               <nav className="film-nav film-card__nav">
                 <ul className="film-nav__list">
                   <li className="film-nav__item film-nav__item--active">
-                    <a href="test" className="film-nav__link">Overview</a>
+                    <Link to={`/films/${filmId}`} className="film-nav__link">Overview</Link>
                   </li>
                   <li className="film-nav__item">
-                    <a href="test" className="film-nav__link">Details</a>
+                    <Link to={`/films/${filmId}/details`} className="film-nav__link">Details</Link>
                   </li>
                   <li className="film-nav__item">
-                    <a href="test" className="film-nav__link">Reviews</a>
+                    <Link to={`/films/${filmId}/review`} className="film-nav__link">Reviews</Link>
                   </li>
                 </ul>
               </nav>

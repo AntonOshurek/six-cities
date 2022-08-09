@@ -1,6 +1,8 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
+import { Link } from 'react-router-dom';
+
 import CatalogFilmList from '../components/catalog-films-list/catalogFilmsList';
 import Logo from '../components/logo/logo';
 import UserBlock from '../components/user-block/user-block';
@@ -8,15 +10,10 @@ import PageFooter from '../components/page-footer/page-footer';
 
 import { moreLikeFilms, allFilms } from '../data/films-data';
 import type { Film } from '../types/film-types';
-// import { AppRoute } from '../consts/consts';
 
 function MoviePage(): JSX.Element {
-  // const filmIdFieldName = AppRoute.MOVIE_PAGE.split(':')[1];
   const {filmId} = useParams();
   const [currentFilm, setCurrentFilm] = useState<Film>();
-
-  // eslint-disable-next-line no-console
-  // console.log(filmIdFieldName);
 
   useEffect(() => {
     getMovie();
@@ -26,8 +23,6 @@ function MoviePage(): JSX.Element {
     allFilms.map((item) => {
       if(item.key === filmId) {
         setCurrentFilm(item);
-        // eslint-disable-next-line no-console
-        console.log(item);
       }
     });
   }
@@ -84,13 +79,13 @@ function MoviePage(): JSX.Element {
               <nav className="film-nav film-card__nav">
                 <ul className="film-nav__list">
                   <li className="film-nav__item film-nav__item--active">
-                    <a href="test" className="film-nav__link">Overview</a>
+                    <Link to={`/films/${filmId}`} className="film-nav__link">Overview</Link>
                   </li>
                   <li className="film-nav__item">
-                    <a href="test" className="film-nav__link">Details</a>
+                    <Link to={`/films/${filmId}/review`} className="film-nav__link">Details</Link>
                   </li>
                   <li className="film-nav__item">
-                    <a href="test" className="film-nav__link">Reviews</a>
+                    <Link to={`/films/${filmId}/review`} className="film-nav__link">Reviews</Link>
                   </li>
                 </ul>
               </nav>

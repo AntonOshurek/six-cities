@@ -1,13 +1,11 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
-// import { Link } from 'react-router-dom';
-
 import MoviePageFilmCard from '../../components/film-card/movie-page-film-card/movie-page-film-card';
+import MoviePageFilmCardNav from '../../components/film-card/movie-page-film-card-nav/movie-page-film-card-nav';
 import CatalogFilmList from '../../components/catalog-films-list/catalogFilmsList';
 import PageFooter from '../../components/page-footer/page-footer';
 
-import MoviePageFilmCardNav from '../../components/film-card/movie-page-film-card-nav/movie-page-film-card-nav';
 
 import { moreLikeFilms, allFilms } from '../../data/films-data';
 import type { Film } from '../../types/film-types';
@@ -39,19 +37,6 @@ function MoviePage(): JSX.Element {
             </div>
 
             <div className="film-card__desc">
-              {/* <nav className="film-nav film-card__nav">
-                <ul className="film-nav__list">
-                  <li className="film-nav__item film-nav__item--active">
-                    <Link to={`/films/${filmId}`} className="film-nav__link">Overview</Link>
-                  </li>
-                  <li className="film-nav__item">
-                    <Link to={`/films/${filmId}/details`} className="film-nav__link">Details</Link>
-                  </li>
-                  <li className="film-nav__item">
-                    <Link to={`/films/${filmId}/review`} className="film-nav__link">Reviews</Link>
-                  </li>
-                </ul>
-              </nav> */}
 
               {filmId && <MoviePageFilmCardNav filmId={filmId}/>}
 

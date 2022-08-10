@@ -1,13 +1,11 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
-import { Link } from 'react-router-dom';
-
+import MoviePageFilmCard from '../../components/film-card/movie-page-film-card/movie-page-film-card';
+import MoviePageFilmCardNav from '../../components/film-card/movie-page-film-card-nav/movie-page-film-card-nav';
 import CatalogFilmList from '../../components/catalog-films-list/catalogFilmsList';
-import Logo from '../../components/logo/logo';
-import UserBlock from '../../components/user-block/user-block';
-import MovieFilmCard from '../../components/film-card/movie-film-card/movie-film-card';
 import PageFooter from '../../components/page-footer/page-footer';
+
 
 import { moreLikeFilms, allFilms } from '../../data/films-data';
 import type { Film } from '../../types/film-types';
@@ -30,20 +28,7 @@ function MoviePage(): JSX.Element {
   return(
     <>
       <section className="film-card film-card--full">
-        <div className="film-card__hero">
-          <div className="film-card__bg">
-            <img src="img/bg-the-grand-budapest-hotel.jpg" alt="The Grand Budapest Hotel" />
-          </div>
-
-          <h1 className="visually-hidden">WTW</h1>
-
-          <header className="page-header film-card__head">
-            <Logo />
-            <UserBlock />
-          </header>
-
-          {currentFilm && <MovieFilmCard filmCardData={currentFilm}/>}
-        </div>
+        {currentFilm && <MoviePageFilmCard filmCardData={currentFilm}/>}
 
         <div className="film-card__wrap film-card__translate-top">
           <div className="film-card__info">
@@ -52,19 +37,8 @@ function MoviePage(): JSX.Element {
             </div>
 
             <div className="film-card__desc">
-              <nav className="film-nav film-card__nav">
-                <ul className="film-nav__list">
-                  <li className="film-nav__item film-nav__item--active">
-                    <Link to={`/films/${filmId}`} className="film-nav__link">Overview</Link>
-                  </li>
-                  <li className="film-nav__item">
-                    <Link to={`/films/${filmId}/details`} className="film-nav__link">Details</Link>
-                  </li>
-                  <li className="film-nav__item">
-                    <Link to={`/films/${filmId}/review`} className="film-nav__link">Reviews</Link>
-                  </li>
-                </ul>
-              </nav>
+
+              {filmId && <MoviePageFilmCardNav filmId={filmId}/>}
 
               <div className="film-rating">
                 <div className="film-rating__score">8,9</div>

@@ -25,7 +25,7 @@ function App({filmCard, allFilms}: AppProps): JSX.Element {
         <Route path={AppRoute.ROOT} element={<MainPage filmCard={filmCard} allFilms={allFilms}/> } />
         <Route path={AppRoute.LOGIN} element={<Login/>} />
         <Route path={AppRoute.MOVIE_PAGE} element={<MoviePage/>} />
-        <Route path={AppRoute.MOVIE_REVIE_PAGE} element={<MovieReviewPage/>} />
+        <Route path={AppRoute.MOVIE_REVIEW_PAGE} element={<MovieReviewPage/>} />
         <Route path={AppRoute.MOVIE_DETAILS_PAGE} element={<MovieDetailsPage/>} />
         <Route path={AppRoute.PLAYER} element={<Player/>} />
         <Route

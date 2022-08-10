@@ -1,5 +1,4 @@
-import Logo from '../../logo/logo';
-import UserBlock from '../../user-block/user-block';
+import Header from '../../header/header';
 
 import type { FilmCardData } from '../../../types/film-types';
 
@@ -17,10 +16,7 @@ function MainFilmCard({filmCard}: FilmCardProps): JSX.Element {
 
       <h1 className="visually-hidden">WTW</h1>
 
-      <header className="page-header film-card__head">
-        <Logo />
-        <UserBlock/>
-      </header>
+      <Header />
 
       <div className="film-card__wrap">
         <div className="film-card__info">

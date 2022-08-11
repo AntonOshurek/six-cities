@@ -1,7 +1,7 @@
-import UserBlock from '../components/user-block/user-block';
-import PageFooter from '../components/page-footer/page-footer';
+import UserBlock from '../components/default-components/user-block/user-block';
+import PageFooter from '../components/default-components/page-footer/page-footer';
 import CatalogFilmList from '../components/catalog/catalog-films-list/catalog-films-list';
-import Logo from '../components/logo/logo';
+import Logo from '../components/default-components/logo/logo';
 
 import { myFilms } from '../data/films-data';
 

@@ -1,4 +1,4 @@
-import Header from '../../header/header';
+import Header from '../../default-components/header/header';
 
 import type { Film } from '../../../types/film-types';
 

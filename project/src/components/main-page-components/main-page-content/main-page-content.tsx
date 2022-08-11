@@ -1,5 +1,5 @@
 import Catalog from '../../catalog/catalog';
-import PageFooter from '../../page-footer/page-footer';
+import PageFooter from '../../default-components/page-footer/page-footer';
 
 import type { Film } from '../../../types/film-types';
 

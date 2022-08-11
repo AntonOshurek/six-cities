@@ -1,5 +1,5 @@
-import PageFooter from '../components/page-footer/page-footer';
-import Logo from '../components/logo/logo';
+import PageFooter from '../components/default-components/page-footer/page-footer';
+import Logo from '../components/default-components/logo/logo';
 
 function Login(): JSX.Element {
   return(

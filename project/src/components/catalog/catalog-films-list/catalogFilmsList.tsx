@@ -1,6 +1,6 @@
-import type { Film } from '../../types/film-types';
+import type { Film } from '../../../types/film-types';
 
-import SmallFilmCard from '../film-card/small-film-card/small-film-card';
+import SmallFilmCard from '../../small-film-card/small-film-card';
 
 type CatalogFilmListProps = {
   films: Film[],

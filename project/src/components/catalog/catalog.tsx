@@ -1,6 +1,6 @@
-import CatalogGenresList from '../catalog-genres-list/catalogGenresList';
-import CatalogFilmList from '../catalog-films-list/catalogFilmsList';
-import CatalogMore from '../catalog-more/catalogMore';
+import CatalogGenresList from './catalog-genres-list/catalogGenresList';
+import CatalogFilmList from './catalog-films-list/catalogFilmsList';
+import CatalogMore from './catalog-more/catalogMore';
 
 import type { Film } from '../../types/film-types';
 

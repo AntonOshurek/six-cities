@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import type { Film } from '../../../types/film-types';
+import type { Film } from '../../types/film-types';
 
 type SmallFilmCardProps = {
   filmItem: Film,

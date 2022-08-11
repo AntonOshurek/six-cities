@@ -1,5 +1,5 @@
-import MainFilmCard from '../components/film-card/main-film-card/main-film-card';
-import PageContent from '../components/page-content/page-content';
+import MainPageBannerFilmCard from '../components/main-page-components/main-page-banner-film-card/main-page-banner-film-card';
+import MainPageContent from '../components/main-page-components/main-page-content/main-page-content';
 
 import type { Film, FilmCardData } from '../types/film-types';
 
@@ -11,8 +11,8 @@ type MainPageProps = {
 function MainPage({ filmCard, allFilms }: MainPageProps): JSX.Element {
   return (
     <>
-      <MainFilmCard filmCard={filmCard}/>
-      <PageContent allFilms={allFilms}/>
+      <MainPageBannerFilmCard filmCard={filmCard}/>
+      <MainPageContent allFilms={allFilms}/>
     </>
   );
 }

@@ -8,9 +8,9 @@ function MoviePageFilmCardNav({filmId}: MoviePageFilmCardNavProps): JSX.Element 
 
   const location = useLocation().pathname;
 
-  const isMoviePage = location.match(/\/films\/\d{3,}$/);
-  const isDetails = location.match(/\/films\/\d{3,}\/details/);
-  const isReview = location.match(/\/films\/\d{3,}\/review/);
+  const isMoviePage = location.match(/\/films\/\d{1,}$/);
+  const isDetails = location.match(/\/films\/\d{1,}\/details/);
+  const isReview = location.match(/\/films\/\d{1,}\/review/);
 
   return(
     <nav className="film-nav film-card__nav">

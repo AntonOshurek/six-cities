@@ -3,14 +3,12 @@ import { useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 
 import MoviePageFilmCard from '../components/film-card/movie-page-film-card/movie-page-film-card';
-import MoviePageNavigation from '../components/movie-page-components/movie-page-navigation/movie-page-film-card-nav';
+import MoviePageNavigation from '../components/movie-page-components/movie-page-navigation/movie-page-navigationv';
 import CatalogFilmList from '../components/catalog-films-list/catalogFilmsList';
 import PageFooter from '../components/page-footer/page-footer';
 
-
 import { moreLikeFilms, allFilms } from '../data/films-data';
 import type { Film } from '../types/film-types';
-
 
 function MoviePage(): JSX.Element {
   const {filmId} = useParams();
@@ -43,6 +41,7 @@ function MoviePage(): JSX.Element {
               {filmId && <MoviePageNavigation filmId={filmId}/>}
 
               <Outlet />
+
             </div>
           </div>
         </div>

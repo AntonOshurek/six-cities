@@ -1,10 +1,10 @@
 import { Link, useLocation } from 'react-router-dom';
 
-type MoviePageFilmCardNavProps = {
+type MoviePageNavigationProps = {
   filmId: string,
 }
 
-function MoviePageFilmCardNav({filmId}: MoviePageFilmCardNavProps): JSX.Element {
+function MoviePageNavigation({filmId}: MoviePageNavigationProps): JSX.Element {
 
   const location = useLocation().pathname;
 
@@ -29,4 +29,4 @@ function MoviePageFilmCardNav({filmId}: MoviePageFilmCardNavProps): JSX.Element 
   );
 }
 
-export default MoviePageFilmCardNav;
+export default MoviePageNavigation;

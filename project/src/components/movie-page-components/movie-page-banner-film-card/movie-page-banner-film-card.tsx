@@ -1,12 +1,15 @@
+import { Link } from 'react-router-dom';
+
 import Header from '../../default-components/header/header';
 
 import type { FilmItem } from '../../../types/film-types';
 
 type MoviePageBannerFilmCardProps = {
   filmCardData: FilmItem,
+  filmId: string,
 }
 
-function MoviePageBannerFilmCard({filmCardData}: MoviePageBannerFilmCardProps): JSX.Element {
+function MoviePageBannerFilmCard({filmCardData, filmId}: MoviePageBannerFilmCardProps): JSX.Element {
 
   return(
     <div className="film-card__hero">
@@ -39,7 +42,7 @@ function MoviePageBannerFilmCard({filmCardData}: MoviePageBannerFilmCardProps): 
               </svg>
               <span>My list</span>
             </button>
-            <a href="add-review.html" className="btn film-card__button">Add review</a>
+            <Link to={`/films/${filmId}/add-review`} className="btn film-card__button">Add review</Link>
           </div>
         </div>
       </div>

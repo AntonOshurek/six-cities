@@ -5,6 +5,7 @@ export enum AppRoute {
   MOVIE_PAGE = '/films/:filmId',
   MOVIE_PAGE_REVIEW = 'review',
   MOVIE_PAGE_DETAILS = 'details',
+  MOVIE_PAGE_ADD_REVIEW = '/films/:filmId/add-review',
   PLAYER = '/player/:id',
 }
 

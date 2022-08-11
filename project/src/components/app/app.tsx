@@ -6,6 +6,7 @@ import Login from '../../pages/login';
 import MoviePage from '../../pages/movie-page';
 import Player from '../../pages/player';
 import PrivateRoute from '../private-route/PrivateRoute';
+import MoviePageAddReview from '../movie-page-components/movie-page-add-review/movie-page-add-review';
 //Movie Page inner pages (outlet)
 import MoviePageReview from '../movie-page-components/movie-page-rewiew/movie-page-review';
 import MoviePageDetails from '../movie-page-components/movie-page-details/movie-page-details';
@@ -32,6 +33,8 @@ function App({filmCard, allFilms}: AppProps): JSX.Element {
           <Route path={AppRoute.MOVIE_PAGE_REVIEW} element={<MoviePageReview/>} />
           <Route path={AppRoute.MOVIE_PAGE_DETAILS} element={<MoviePageDetails/>} />
         </Route>
+
+        <Route path={AppRoute.MOVIE_PAGE_ADD_REVIEW} element={<MoviePageAddReview/>} />
 
         <Route path={AppRoute.PLAYER} element={<Player/>} />
 

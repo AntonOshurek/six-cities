@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+
 type MoviePageNavigationProps = {
   filmId: string,
 }

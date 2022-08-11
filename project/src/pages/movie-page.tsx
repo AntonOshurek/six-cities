@@ -28,7 +28,7 @@ function MoviePage(): JSX.Element {
   return(
     <>
       <section className="film-card film-card--full">
-        {currentFilm && <MoviePageBannerFilmCard filmCardData={currentFilm}/>}
+        {currentFilm && filmId && <MoviePageBannerFilmCard filmCardData={currentFilm} filmId={filmId}/>}
 
         <div className="film-card__wrap film-card__translate-top">
           <div className="film-card__info">

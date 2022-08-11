@@ -1,9 +1,9 @@
 import Header from '../../default-components/header/header';
 
-import type { Film } from '../../../types/film-types';
+import type { newFilm } from '../../../types/film-types';
 
 type MoviePageBannerFilmCardProps = {
-  filmCardData: Film,
+  filmCardData: newFilm,
 }
 
 function MoviePageBannerFilmCard({filmCardData}: MoviePageBannerFilmCardProps): JSX.Element {
@@ -20,7 +20,7 @@ function MoviePageBannerFilmCard({filmCardData}: MoviePageBannerFilmCardProps): 
 
       <div className="film-card__wrap">
         <div className="film-card__desc">
-          <h2 className="film-card__title">{filmCardData.title}</h2>
+          <h2 className="film-card__title">{filmCardData.name}</h2>
           <p className="film-card__meta">
             <span className="film-card__genre">Drama</span>
             <span className="film-card__year">2014</span>

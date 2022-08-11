@@ -7,20 +7,20 @@ import MoviePageNavigation from '../components/movie-page-components/movie-page-
 import CatalogFilmList from '../components/catalog/catalog-films-list/catalog-films-list';
 import PageFooter from '../components/default-components/page-footer/page-footer';
 
-import { moreLikeFilms, allFilms } from '../data/films-data';
-import type { Film } from '../types/film-types';
+import { moreLikeFilms, newFilmCard } from '../data/films-data';
+import type { newFilm } from '../types/film-types';
 
 function MoviePage(): JSX.Element {
   const {filmId} = useParams();
-  const [currentFilm, setCurrentFilm] = useState<Film>();
+  const [currentFilm, setCurrentFilm] = useState<newFilm>();
 
   useEffect(() => {
     getMovie();
   }, []);
 
   function getMovie(): void {
-    allFilms.map((item) => {
-      if(item.key === filmId) {
+    newFilmCard.map((item) => {
+      if(filmId && +item.id === +filmId) {
         setCurrentFilm(item);
       }
     });
@@ -33,7 +33,7 @@ function MoviePage(): JSX.Element {
         <div className="film-card__wrap film-card__translate-top">
           <div className="film-card__info">
             <div className="film-card__poster film-card__poster--big">
-              <img src={currentFilm?.img} alt="The Grand Budapest Hotel poster" width="218" height="327" />
+              <img src={currentFilm?.postrer_image} alt="The Grand Budapest Hotel poster" width="218" height="327" />
             </div>
 
             <div className="film-card__desc">

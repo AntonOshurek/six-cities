@@ -12,11 +12,11 @@ import MoviePageDetails from '../movie-page-components/movie-page-details/movie-
 import MoviePageOverview from '../movie-page-components/movie-page-overview/movie-page-overview';
 
 import { AppRoute, AuthorizationStatus } from '../../consts/consts';
-import type { Film, FilmCardData } from '../../types/film-types';
+import type { FilmCardData, newFilm } from '../../types/film-types';
 
 type AppProps = {
   filmCard: FilmCardData,
-  allFilms: Film[],
+  allFilms: newFilm[],
 }
 
 function App({filmCard, allFilms}: AppProps): JSX.Element {

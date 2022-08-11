@@ -2,16 +2,16 @@ import Header from '../../header/header';
 
 import type { Film } from '../../../types/film-types';
 
-type MoviePageFilmCardProps = {
+type MoviePageBannerFilmCardProps = {
   filmCardData: Film,
 }
 
-function MoviePageFilmCard({filmCardData}: MoviePageFilmCardProps): JSX.Element {
+function MoviePageBannerFilmCard({filmCardData}: MoviePageBannerFilmCardProps): JSX.Element {
 
   return(
     <div className="film-card__hero">
       <div className="film-card__bg">
-        <img src="img/bg-the-grand-budapest-hotel.jpg" width={500} height={300} alt="The Grand Budapest Hotel" />
+        <img src="img/bg-the-grand-budapest-hotel.jpg" alt="The Grand Budapest Hotel" />
       </div>
 
       <h1 className="visually-hidden">WTW</h1>
@@ -47,4 +47,4 @@ function MoviePageFilmCard({filmCardData}: MoviePageFilmCardProps): JSX.Element 
   );
 }
 
-export default MoviePageFilmCard;
+export default MoviePageBannerFilmCard;

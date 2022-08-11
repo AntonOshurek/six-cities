@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 
-import MoviePageFilmCard from '../components/film-card/movie-page-film-card/movie-page-film-card';
+import MoviePageFilmCard from '../components/movie-page-components/movie-page-banner-film-card/movie-page-banner-film-card';
 import MoviePageNavigation from '../components/movie-page-components/movie-page-navigation/movie-page-navigationv';
 import CatalogFilmList from '../components/catalog-films-list/catalogFilmsList';
 import PageFooter from '../components/page-footer/page-footer';

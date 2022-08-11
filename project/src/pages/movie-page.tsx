@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom';
 
 import MoviePageFilmCard from '../components/movie-page-components/movie-page-banner-film-card/movie-page-banner-film-card';
 import MoviePageNavigation from '../components/movie-page-components/movie-page-navigation/movie-page-navigationv';
-import CatalogFilmList from '../components/catalog/catalog-films-list/catalogFilmsList';
+import CatalogFilmList from '../components/catalog/catalog-films-list/catalog-films-list';
 import PageFooter from '../components/page-footer/page-footer';
 
 import { moreLikeFilms, allFilms } from '../data/films-data';

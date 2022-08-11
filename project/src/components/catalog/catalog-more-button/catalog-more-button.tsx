@@ -1,4 +1,4 @@
-function CatalogMore(): JSX.Element {
+function CatalogMoreButton(): JSX.Element {
   return (
     <div className="catalog__more">
       <button className="catalog__button" type="button">Show more</button>
@@ -6,4 +6,4 @@ function CatalogMore(): JSX.Element {
   );
 }
 
-export default CatalogMore;
+export default CatalogMoreButton;

@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
 
-import type { Film } from '../../types/film-types';
+import type { Film } from '../../../types/film-types';
 
-type SmallFilmCardProps = {
+type CatalogFilmCardProps = {
   filmItem: Film,
 }
 
-function SmallFilmCard({filmItem}: SmallFilmCardProps):JSX.Element {
+function CatalogFilmCard({filmItem}: CatalogFilmCardProps):JSX.Element {
 
   return(
     <article className="small-film-card catalog__films-card">
@@ -20,4 +20,4 @@ function SmallFilmCard({filmItem}: SmallFilmCardProps):JSX.Element {
   );
 }
 
-export default SmallFilmCard;
+export default CatalogFilmCard;

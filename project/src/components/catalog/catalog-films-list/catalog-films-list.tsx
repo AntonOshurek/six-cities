@@ -1,9 +1,9 @@
-import type { newFilm } from '../../../types/film-types';
+import type { FilmItem } from '../../../types/film-types';
 
 import CatalogFilmCard from '../catalog-film-card/catalog-film-card';
 
 type CatalogFilmListProps = {
-  films: newFilm[],
+  films: FilmItem[],
 }
 
 function CatalogFilmList({films}:CatalogFilmListProps): JSX.Element {

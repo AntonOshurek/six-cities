@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 
-import type { newFilm } from '../../../types/film-types';
+import type { FilmItem } from '../../../types/film-types';
 
 type CatalogFilmCardProps = {
-  filmItem: newFilm,
+  filmItem: FilmItem,
 }
 
 function CatalogFilmCard({filmItem}: CatalogFilmCardProps):JSX.Element {

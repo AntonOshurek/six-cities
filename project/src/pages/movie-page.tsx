@@ -2,24 +2,24 @@ import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 
-import MoviePageFilmCard from '../components/movie-page-components/movie-page-banner-film-card/movie-page-banner-film-card';
+import MoviePageBannerFilmCard from '../components/movie-page-components/movie-page-banner-film-card/movie-page-banner-film-card';
 import MoviePageNavigation from '../components/movie-page-components/movie-page-navigation/movie-page-navigationv';
 import CatalogFilmList from '../components/catalog/catalog-films-list/catalog-films-list';
 import PageFooter from '../components/default-components/page-footer/page-footer';
 
-import { moreLikeFilms, newFilmCard } from '../data/films-data';
-import type { newFilm } from '../types/film-types';
+import { moreLikeFilms, allFilms } from '../data/films-data';
+import type { FilmItem } from '../types/film-types';
 
 function MoviePage(): JSX.Element {
   const {filmId} = useParams();
-  const [currentFilm, setCurrentFilm] = useState<newFilm>();
+  const [currentFilm, setCurrentFilm] = useState<FilmItem>();
 
   useEffect(() => {
     getMovie();
   }, []);
 
   function getMovie(): void {
-    newFilmCard.map((item) => {
+    allFilms.map((item) => {
       if(filmId && +item.id === +filmId) {
         setCurrentFilm(item);
       }
@@ -28,7 +28,7 @@ function MoviePage(): JSX.Element {
   return(
     <>
       <section className="film-card film-card--full">
-        {currentFilm && <MoviePageFilmCard filmCardData={currentFilm}/>}
+        {currentFilm && <MoviePageBannerFilmCard filmCardData={currentFilm}/>}
 
         <div className="film-card__wrap film-card__translate-top">
           <div className="film-card__info">

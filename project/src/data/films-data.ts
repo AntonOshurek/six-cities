@@ -1,4 +1,4 @@
-import type { FilmCardData, newFilm } from '../types/film-types';
+import type { FilmCardData, FilmItem } from '../types/film-types';
 
 const filmCard: FilmCardData = {
   bg: 'img/bg-the-grand-budapest-hotel.jpg',
@@ -8,7 +8,7 @@ const filmCard: FilmCardData = {
   year: 2014,
 };
 
-const moreLikeFilms: newFilm[] = [
+const moreLikeFilms: FilmItem[] = [
   {
     'id': 1,
     'name': 'Fantastic Beasts: The Crimes of Grindelwald',
@@ -83,7 +83,7 @@ const moreLikeFilms: newFilm[] = [
   },
 ];
 
-const myFilms: newFilm[] = [
+const myFilms: FilmItem[] = [
   {
     'id': 1,
     'name': 'Fantastic Beasts: The Crimes of Grindelwald',
@@ -158,7 +158,7 @@ const myFilms: newFilm[] = [
   },
 ];
 
-const newFilmCard: newFilm[] = [
+const allFilms: FilmItem[] = [
   {
     'id': 1,
     'name': 'Fantastic Beasts: The Crimes of Grindelwald',
@@ -521,4 +521,4 @@ const newFilmCard: newFilm[] = [
   },
 ];
 
-export { moreLikeFilms, myFilms, filmCard, newFilmCard };
+export { moreLikeFilms, myFilms, filmCard, allFilms };

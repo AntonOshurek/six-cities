@@ -6,14 +6,7 @@ type FilmCardData = {
   year: number,
 };
 
-type Film = {
-  img: string,
-  title: string,
-  link: string,
-  key: string,
-}
-
-type newFilm = {
+type FilmItem = {
   'id': number,
   'name': string,
   'postrer_image': string,
@@ -32,4 +25,4 @@ type newFilm = {
   'is_favorite': boolean,
 }
 
-export type { FilmCardData, Film, newFilm };
+export type { FilmCardData, FilmItem };

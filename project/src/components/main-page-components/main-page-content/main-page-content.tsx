@@ -1,10 +1,10 @@
 import Catalog from '../../catalog/catalog';
 import PageFooter from '../../default-components/page-footer/page-footer';
 
-import type { newFilm } from '../../../types/film-types';
+import type { FilmItem } from '../../../types/film-types';
 
 type MainPageContentProps = {
-  allFilms: newFilm[],
+  allFilms: FilmItem[],
 }
 
 function MainPageContent({ allFilms }: MainPageContentProps): JSX.Element {

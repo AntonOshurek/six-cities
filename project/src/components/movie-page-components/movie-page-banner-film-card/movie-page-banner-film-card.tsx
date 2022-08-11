@@ -1,9 +1,9 @@
 import Header from '../../default-components/header/header';
 
-import type { newFilm } from '../../../types/film-types';
+import type { FilmItem } from '../../../types/film-types';
 
 type MoviePageBannerFilmCardProps = {
-  filmCardData: newFilm,
+  filmCardData: FilmItem,
 }
 
 function MoviePageBannerFilmCard({filmCardData}: MoviePageBannerFilmCardProps): JSX.Element {

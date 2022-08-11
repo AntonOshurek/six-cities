@@ -1,5 +1,5 @@
 import { useParams, Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, ChangeEvent } from 'react';
 
 import Logo from '../../default-components/logo/logo';
 import UserBlock from '../../default-components/user-block/user-block';
@@ -12,17 +12,23 @@ function MoviePageAddReview(): JSX.Element {
   const {filmId} = useParams();
   const [currentFilm, setCurrentFilm] = useState<FilmItem>();
 
-  useEffect(() => {
-    getMovie();
-  }, []);
+  const reviewFormSubmitHandler = (evt: ChangeEvent<HTMLFormElement>): void => {
+    evt.preventDefault();
+    // eslint-disable-next-line no-console
+    console.log(evt.target);
+  };
 
-  function getMovie(): void {
+  const getMovie =(): void => {
     allFilms.map((item) => {
       if(filmId && +item.id === +filmId) {
         setCurrentFilm(item);
       }
     });
-  }
+  };
+
+  useEffect(() => {
+    getMovie();
+  }, []);
 
   return(
     <section className="film-card film-card--full">
@@ -56,7 +62,7 @@ function MoviePageAddReview(): JSX.Element {
       </div>
 
       <div className="add-review">
-        <MoviePageAddReviewForm />
+        <MoviePageAddReviewForm reviewFormSubmitHandler={reviewFormSubmitHandler}/>
       </div>
 
     </section>

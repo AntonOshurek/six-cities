@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import { AppRoute } from '../../consts/consts';
+import { AppRoute } from '../../../consts/consts';
 
 function PageFooter(): JSX.Element {
   return (

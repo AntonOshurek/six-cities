@@ -1,11 +1,11 @@
-import CatalogGenresList from '../catalog-genres-list/catalogGenresList';
-import CatalogFilmList from '../catalog-films-list/catalogFilmsList';
-import CatalogMore from '../catalog-more/catalogMore';
+import CatalogGenresList from './catalog-genres-list/catalog-genres-list';
+import CatalogFilmList from './catalog-films-list/catalog-films-list';
+import CatalogMoreButton from './catalog-more-button/catalog-more-button';
 
-import type { Film } from '../../types/film-types';
+import type { FilmItem } from '../../types/film-types';
 
 type CatalogProps = {
-  allFilms: Film[],
+  allFilms: FilmItem[],
 }
 
 function Catalog({ allFilms }: CatalogProps): JSX.Element {
@@ -15,7 +15,7 @@ function Catalog({ allFilms }: CatalogProps): JSX.Element {
 
       <CatalogGenresList />
       <CatalogFilmList films={allFilms} />
-      <CatalogMore />
+      <CatalogMoreButton />
     </section>
   );
 

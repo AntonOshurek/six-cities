@@ -840,10 +840,10 @@ main {
 
 .film-nav__item {
   margin-right: 35px; }
-  .film-nav__item--active .film-nav__link {
+  /* .film-nav__item--active .film-nav__link {
     font-weight: bold; }
     .film-nav__item--active .film-nav__link::after {
-      display: block; }
+      display: block; } */
   .film-nav__item:last-child {
     margin-right: 0; }
 
@@ -865,6 +865,10 @@ main {
     display: none; }
   .film-nav__link:hover::after {
     display: block; }
+  .film-nav__link--active {
+    font-weight: bold;  }
+  .film-nav__link--active::after {
+    display: block;  }
 
 .film-rating {
   display: -webkit-box;

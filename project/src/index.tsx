@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/app/app';
 
-import { allFilms, filmCard } from './data/films-data';
+import { filmCard, allFilms } from './data/films-data';
 
 ReactDOM.render(
   <React.StrictMode>

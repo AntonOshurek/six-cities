@@ -1,17 +1,20 @@
-import Header from '../../header/header';
+import { Link } from 'react-router-dom';
 
-import type { Film } from '../../../types/film-types';
+import Header from '../../default-components/header/header';
 
-type MoviePageFilmCardProps = {
-  filmCardData: Film,
+import type { FilmItem } from '../../../types/film-types';
+
+type MoviePageBannerFilmCardProps = {
+  filmCardData: FilmItem,
+  filmId: string,
 }
 
-function MoviePageFilmCard({filmCardData}: MoviePageFilmCardProps): JSX.Element {
+function MoviePageBannerFilmCard({filmCardData, filmId}: MoviePageBannerFilmCardProps): JSX.Element {
 
   return(
     <div className="film-card__hero">
       <div className="film-card__bg">
-        <img src="img/bg-the-grand-budapest-hotel.jpg" width={500} height={300} alt="The Grand Budapest Hotel" />
+        <img src="img/bg-the-grand-budapest-hotel.jpg" alt="The Grand Budapest Hotel" />
       </div>
 
       <h1 className="visually-hidden">WTW</h1>
@@ -20,7 +23,7 @@ function MoviePageFilmCard({filmCardData}: MoviePageFilmCardProps): JSX.Element 
 
       <div className="film-card__wrap">
         <div className="film-card__desc">
-          <h2 className="film-card__title">{filmCardData.title}</h2>
+          <h2 className="film-card__title">{filmCardData.name}</h2>
           <p className="film-card__meta">
             <span className="film-card__genre">Drama</span>
             <span className="film-card__year">2014</span>
@@ -39,7 +42,7 @@ function MoviePageFilmCard({filmCardData}: MoviePageFilmCardProps): JSX.Element 
               </svg>
               <span>My list</span>
             </button>
-            <a href="add-review.html" className="btn film-card__button">Add review</a>
+            <Link to={`/films/${filmId}/add-review`} className="btn film-card__button">Add review</Link>
           </div>
         </div>
       </div>
@@ -47,4 +50,4 @@ function MoviePageFilmCard({filmCardData}: MoviePageFilmCardProps): JSX.Element 
   );
 }
 
-export default MoviePageFilmCard;
+export default MoviePageBannerFilmCard;

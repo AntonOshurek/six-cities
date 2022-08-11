@@ -1,12 +1,12 @@
-import Header from '../../header/header';
+import Header from '../../default-components/header/header';
 
 import type { FilmCardData } from '../../../types/film-types';
 
-type FilmCardProps = {
+type MainPageBannerFilmCardProps = {
   filmCard: FilmCardData,
 }
 
-function MainFilmCard({filmCard}: FilmCardProps): JSX.Element {
+function MainPageBannerFilmCard({filmCard}: MainPageBannerFilmCardProps): JSX.Element {
   return (
     <section className="film-card">
 
@@ -52,4 +52,4 @@ function MainFilmCard({filmCard}: FilmCardProps): JSX.Element {
   );
 }
 
-export default MainFilmCard;
+export default MainPageBannerFilmCard;

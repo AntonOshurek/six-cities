@@ -1,4 +1,4 @@
-import { GENRES } from '../../consts/consts';
+import { GENRES } from '../../../consts/consts';
 
 function CatalogGenresList(): JSX.Element {
 

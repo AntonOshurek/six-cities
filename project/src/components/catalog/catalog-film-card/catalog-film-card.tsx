@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
-import { useState, useRef } from 'react';
+import { useState } from 'react';
+
+import TrailerVideo from '../../default-components/trailer-video/trailer-video';
 
 import type { FilmItem } from '../../../types/film-types';
 
@@ -9,8 +11,6 @@ type CatalogFilmCardProps = {
 
 function CatalogFilmCard({filmItem}: CatalogFilmCardProps):JSX.Element {
   const [isActive, setIsActive] = useState<boolean>(false);
-
-  const videoRef = useRef(null);
 
   const onActive = (): void => {
     setIsActive(() => true);
@@ -28,13 +28,7 @@ function CatalogFilmCard({filmItem}: CatalogFilmCardProps):JSX.Element {
       <div className="small-film-card__image">
         {
           isActive ?
-            <video
-              src={filmItem.preview_video_link}
-              className="player__video"
-              poster="img/player-poster.jpg"
-              ref={videoRef}
-            >
-            </video> :
+            <TrailerVideo videoSrc={filmItem.preview_video_link}/> :
             <img src={filmItem.preview_image} alt={filmItem.name} width="280" height="175" />
         }
       </div>

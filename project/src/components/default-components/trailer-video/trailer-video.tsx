@@ -11,8 +11,6 @@ function TrailerVideo({videoSrc}: TrailerVideoProps): JSX.Element {
   const playVideo = (): void => {
     // eslint-disable-next-line no-console
     console.log(videoRef.current);
-
-    // videoRef.current.play();
   };
 
   useEffect(() => {
@@ -24,12 +22,19 @@ function TrailerVideo({videoSrc}: TrailerVideoProps): JSX.Element {
     };
   }, []);
 
+  useEffect(() => {
+    // eslint-disable-next-line no-console
+    // console.log(videoRef.current);
+    // videoRef.current.play();
+  }, []);
+
   return(
     <video
-      src={'test'}
+      src={videoSrc}
       className="player__video"
       poster="img/player-poster.jpg"
       ref={videoRef}
+      autoPlay
     >
     </video>
   );

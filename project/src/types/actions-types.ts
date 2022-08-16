@@ -4,10 +4,10 @@ export enum ActionTypes {
   getFilms = 'app/getFilms',
 }
 
-export type GetAllFilms = {
+export type SetAllFilms = {
   type: ActionTypes.getFilms;
   payload: FilmItem[];
 };
 
 //enumeration of all action types
-export type Actions = GetAllFilms;
+export type Actions = SetAllFilms;

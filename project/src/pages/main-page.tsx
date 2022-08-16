@@ -2,13 +2,31 @@ import MainPageBannerFilmCard from '../components/main-page-components/main-page
 import MainPageContent from '../components/main-page-components/main-page-content/main-page-content';
 
 import type { FilmItem, FilmCardData } from '../types/film-types';
+//data for redux test
+// import { allFilms } from '../data/films-data';
+//REDUX
+import { bindActionCreators, Dispatch } from 'redux';
+import { connect, ConnectedProps } from 'react-redux';
+import { setAllFilms } from '../store/actions/actions';
+import { Actions } from '../types/actions-types';
+
+const mapDispatchToProps = (dispatch: Dispatch<Actions>) => bindActionCreators({
+  fooAllFilms: setAllFilms,
+}, dispatch);
+
+const connector = connect(null, mapDispatchToProps);
 
 type MainPageProps = {
   filmCard: FilmCardData,
   allFilms: FilmItem[],
 }
 
-function MainPage({ filmCard, allFilms }: MainPageProps): JSX.Element {
+type PropsFromRedux = ConnectedProps<typeof connector>;
+type ConnectedComponentProps = PropsFromRedux & MainPageProps;
+
+function MainPage({ filmCard, allFilms, fooAllFilms }: ConnectedComponentProps): JSX.Element {
+  fooAllFilms(allFilms);
+
   return (
     <>
       <MainPageBannerFilmCard filmCard={filmCard}/>
@@ -17,4 +35,5 @@ function MainPage({ filmCard, allFilms }: MainPageProps): JSX.Element {
   );
 }
 
-export default MainPage;
+export {MainPage};
+export default connector(MainPage);

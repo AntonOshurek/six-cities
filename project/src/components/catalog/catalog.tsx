@@ -4,11 +4,29 @@ import CatalogMoreButton from './catalog-more-button/catalog-more-button';
 
 import type { FilmItem } from '../../types/film-types';
 
+//REDUX
+// import {Dispatch} from 'redux';
+import {connect, ConnectedProps} from 'react-redux';
+import { State } from '../../types/state-types';
+
+const mapStateToProps = (state: State) => ({
+  fooAllFilms: state.allFilms,
+});
+
+const connector = connect(mapStateToProps, null);
+
 type CatalogProps = {
   allFilms: FilmItem[],
 }
 
-function Catalog({ allFilms }: CatalogProps): JSX.Element {
+type PropsFromRedux = ConnectedProps<typeof connector>;
+type ConnectedComponentProps = PropsFromRedux & CatalogProps;
+
+function Catalog(props: ConnectedComponentProps): JSX.Element {
+  const {allFilms, fooAllFilms} = props;
+  // eslint-disable-next-line no-console
+  console.log(fooAllFilms);
+
   return (
     <section className="catalog">
       <h2 className="catalog__title visually-hidden">Catalog</h2>
@@ -21,4 +39,5 @@ function Catalog({ allFilms }: CatalogProps): JSX.Element {
 
 }
 
-export default Catalog;
+export {Catalog};
+export default connector(Catalog);

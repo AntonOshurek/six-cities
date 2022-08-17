@@ -2,8 +2,6 @@ import MainPageBannerFilmCard from '../components/main-page-components/main-page
 import MainPageContent from '../components/main-page-components/main-page-content/main-page-content';
 
 import type { FilmItem, FilmCardData } from '../types/film-types';
-//data for redux test
-// import { allFilms } from '../data/films-data';
 //REDUX
 import { bindActionCreators, Dispatch } from 'redux';
 import { connect, ConnectedProps } from 'react-redux';

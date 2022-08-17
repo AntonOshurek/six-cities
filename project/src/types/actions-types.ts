@@ -1,11 +1,11 @@
 import type { FilmItem } from '../types/film-types';
 
 export enum ActionTypes {
-  getFilms = 'app/getFilms',
+  setFilms = 'app/setFilms',
 }
 
 export type SetAllFilms = {
-  type: ActionTypes.getFilms;
+  type: ActionTypes.setFilms;
   payload: FilmItem[];
 };
 

@@ -30,7 +30,7 @@ function MainPage({ filmCard, allFilms, fooAllFilms }: ConnectedComponentProps):
   return (
     <>
       <MainPageBannerFilmCard filmCard={filmCard}/>
-      <MainPageContent allFilms={allFilms}/>
+      <MainPageContent/>
     </>
   );
 }

@@ -15,4 +15,6 @@ export enum AuthorizationStatus {
   Unknown = 'UNKNOWN',
 }
 
+export const renderedFilmsCount = 4;
+
 export const GENRES: string[] = ['All genres', 'Comedies', 'Crime', 'Documentary', 'Dramas', 'Horror', 'Kids & Family', 'Romance', 'Sci-Fi', 'Thrillers'];

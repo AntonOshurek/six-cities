@@ -50,7 +50,6 @@ function App({filmCard, allFilms, setFilms}: ConnectedComponentProps): JSX.Eleme
         </Route>
 
         <Route path={AppRoute.MOVIE_PAGE_ADD_REVIEW} element={<MoviePageAddReview/>} />
-
         <Route path={AppRoute.PLAYER} element={<Player/>} />
 
         <Route

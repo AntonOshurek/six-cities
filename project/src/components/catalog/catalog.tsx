@@ -5,7 +5,7 @@ import CatalogMoreButton from './catalog-more-button/catalog-more-button';
 //REDUX
 import { connect, ConnectedProps } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
-import { showCatalogMoreButton } from '../../store/actions/actions';
+import { setCatalogMoreButtonStatus as SCMBS } from '../../store/actions/actions';
 //CONSTANTS
 // import { FILMS_COUNT_PER_STEP } from '../../consts/consts';
 import { CatalogMoreButtonStatus } from '../../consts/consts';
@@ -15,11 +15,11 @@ import { State } from '../../types/state-types';
 import { Actions } from '../../types/actions-types';
 
 
-function Catalog({ allFilms, catalogMoreButtonStatus, showMoreButton, renderedFilmsCount }: ConnectedComponentProps): JSX.Element {
+function Catalog({ allFilms, catalogMoreButtonStatus, renderedFilmsCount, setCatalogMoreButtonStatus }: ConnectedComponentProps): JSX.Element {
   const firstRenderFilms: FilmItem[] = allFilms.slice(0, Math.min(allFilms.length, renderedFilmsCount));
 
   if (renderedFilmsCount >= allFilms.length) {
-    showMoreButton(CatalogMoreButtonStatus.HiddenButton);
+    setCatalogMoreButtonStatus(CatalogMoreButtonStatus.HiddenButton);
   }
 
   // eslint-disable-next-line no-console
@@ -47,7 +47,7 @@ const mapStateToProps = ({allFilms, catalogMoreButtonStatus, renderedFilmsCount}
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<Actions>) => bindActionCreators({
-  showMoreButton: showCatalogMoreButton,
+  setCatalogMoreButtonStatus: SCMBS,
 }, dispatch);
 
 const connector = connect(mapStateToProps, mapDispatchToProps);

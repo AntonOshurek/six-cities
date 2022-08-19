@@ -7,12 +7,12 @@ export const setAllFilms = (films: FilmItem[]): SetAllFilms => ({
   payload: films,
 });
 
-export const showCatalogMoreButton = (buttonStatus: string): SetCatalogMoreButtonStatus => ({
+export const setCatalogMoreButtonStatus = (buttonStatusName: string): SetCatalogMoreButtonStatus => ({
   type: ActionTypes.setCatalogMoreButtonStatus,
-  payload: buttonStatus,
+  payload: buttonStatusName,
 });
 
-export const setRenderedFilmsCount = (renderedFilmsCount: number): SetRenderedFilmsCount => ({
+export const setRenderedFilmsCount = (newRenderedFilmsCount: number): SetRenderedFilmsCount => ({
   type: ActionTypes.setRenderedFilmsCount,
-  payload: renderedFilmsCount,
+  payload: newRenderedFilmsCount,
 });

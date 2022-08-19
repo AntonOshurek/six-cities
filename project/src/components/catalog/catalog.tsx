@@ -19,10 +19,31 @@ const sorting = (filmsArray: FilmItem[], sortType: string): FilmItem[] => {
       foo = filmsArray.filter((film) => film);
       break;
     case sortingNames.Comedies:
-      foo = filmsArray.filter((film) => film.genre === 'Comedy');
+      foo = filmsArray.filter((film) => film.genre === sortingNames.Comedies);
+      break;
+    case sortingNames.Crime:
+      foo = filmsArray.filter((film) => film.genre === sortingNames.Crime);
+      break;
+    case sortingNames.Documentary:
+      foo = filmsArray.filter((film) => film.genre === sortingNames.Documentary);
+      break;
+    case sortingNames.Dramas:
+      foo = filmsArray.filter((film) => film.genre === sortingNames.Dramas);
+      break;
+    case sortingNames.Horror:
+      foo = filmsArray.filter((film) => film.genre === sortingNames.Horror);
+      break;
+    case sortingNames.KidsFamily:
+      foo = filmsArray.filter((film) => film.genre === sortingNames.KidsFamily);
       break;
     case sortingNames.Romance:
-      foo = filmsArray.filter((film) => film.genre === 'Romance');
+      foo = filmsArray.filter((film) => film.genre === sortingNames.Romance);
+      break;
+    case sortingNames.SciFi:
+      foo = filmsArray.filter((film) => film.genre === sortingNames.SciFi);
+      break;
+    case sortingNames.Thrillers:
+      foo = filmsArray.filter((film) => film.genre === sortingNames.Thrillers);
       break;
     default:
       foo = filmsArray;

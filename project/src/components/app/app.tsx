@@ -13,19 +13,35 @@ import MoviePageDetails from '../movie-page-components/movie-page-details/movie-
 import MoviePageOverview from '../movie-page-components/movie-page-overview/movie-page-overview';
 
 import { AppRoute, AuthorizationStatus } from '../../consts/consts';
-import type { FilmCardData, FilmItem } from '../../types/film-types';
+import { FilmCardData, FilmItem } from '../../types/film-types';
+
+//REDUX
+import { bindActionCreators, Dispatch } from 'redux';
+import { connect, ConnectedProps } from 'react-redux';
+import { setAllFilms } from '../../store/actions/actions';
+import { Actions } from '../../types/actions-types';
+
+const mapDispatchToProps = (dispatch: Dispatch<Actions>) => bindActionCreators({
+  setFilms: setAllFilms,
+}, dispatch);
+
+const connector = connect(null, mapDispatchToProps);
 
 type AppProps = {
   filmCard: FilmCardData,
   allFilms: FilmItem[],
 }
 
-function App({filmCard, allFilms}: AppProps): JSX.Element {
+type PropsFromRedux = ConnectedProps<typeof connector>;
+type ConnectedComponentProps = PropsFromRedux & AppProps;
 
+function App({filmCard, allFilms, setFilms}: ConnectedComponentProps): JSX.Element {
+  setFilms(allFilms);
   return (
     <BrowserRouter>
       <Routes>
-        <Route path={AppRoute.ROOT} element={<MainPage filmCard={filmCard} allFilms={allFilms}/> } />
+        <Route path={AppRoute.ROOT} element={<MainPage filmCard={filmCard}/> } />
+        <Route path={AppRoute.ROOT_SORT} element={<MainPage filmCard={filmCard}/> } />
         <Route path={AppRoute.LOGIN} element={<Login/>} />
 
         <Route path={AppRoute.MOVIE_PAGE} element={<MoviePage/>}>
@@ -35,7 +51,6 @@ function App({filmCard, allFilms}: AppProps): JSX.Element {
         </Route>
 
         <Route path={AppRoute.MOVIE_PAGE_ADD_REVIEW} element={<MoviePageAddReview/>} />
-
         <Route path={AppRoute.PLAYER} element={<Player/>} />
 
         <Route
@@ -51,4 +66,5 @@ function App({filmCard, allFilms}: AppProps): JSX.Element {
   );
 }
 
-export default App;
+export {App};
+export default connector(App);

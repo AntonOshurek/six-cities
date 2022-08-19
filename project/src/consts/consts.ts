@@ -1,5 +1,6 @@
 export enum AppRoute {
   ROOT = '/',
+  ROOT_SORT = '/:sort',
   MY_LIST = '/mylist',
   LOGIN = '/login',
   MOVIE_PAGE = '/films/:filmId',
@@ -14,5 +15,20 @@ export enum AuthorizationStatus {
   NoAuth = 'NO_AUTH',
   Unknown = 'UNKNOWN',
 }
+
+export enum sortingNames {
+  All = 'all',
+  Comedies = 'Comedies',
+  Crime = 'Crime',
+  Documentary = 'Documentary',
+  Dramas = 'Dramas',
+  Horror = 'Horror',
+  KidsFamily = 'Kids&Family',
+  Romance = 'Romance',
+  SciFi = 'Sci-Fi',
+  Thrillers = 'Thrillers',
+}
+
+export const FILMS_COUNT_PER_STEP = 4;
 
 export const GENRES: string[] = ['All genres', 'Comedies', 'Crime', 'Documentary', 'Dramas', 'Horror', 'Kids & Family', 'Romance', 'Sci-Fi', 'Thrillers'];

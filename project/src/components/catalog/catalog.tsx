@@ -7,19 +7,23 @@ import { connect, ConnectedProps } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 import { showCatalogMoreButton } from '../../store/actions/actions';
 //CONSTANTS
-import { renderedFilmsCount } from '../../consts/consts';
+// import { FILMS_COUNT_PER_STEP } from '../../consts/consts';
+import { CatalogMoreButtonStatus } from '../../consts/consts';
 //TYPES
 import { FilmItem } from '../../types/film-types';
 import { State } from '../../types/state-types';
 import { Actions } from '../../types/actions-types';
 
 
-function Catalog({ allFilms, catalogMoreButton, showMoreButton }: ConnectedComponentProps): JSX.Element {
+function Catalog({ allFilms, catalogMoreButtonStatus, showMoreButton, renderedFilmsCount }: ConnectedComponentProps): JSX.Element {
   const firstRenderFilms: FilmItem[] = allFilms.slice(0, Math.min(allFilms.length, renderedFilmsCount));
-  //for first launch
-  if(allFilms.length > renderedFilmsCount) {
-    showMoreButton(true);
+
+  if (renderedFilmsCount >= allFilms.length) {
+    showMoreButton(CatalogMoreButtonStatus.HiddenButton);
   }
+
+  // eslint-disable-next-line no-console
+  console.log(`${catalogMoreButtonStatus  } catalogMoreButtonStatus`);
 
   return (
     <section className="catalog">
@@ -27,7 +31,7 @@ function Catalog({ allFilms, catalogMoreButton, showMoreButton }: ConnectedCompo
 
       <CatalogGenresList />
       <CatalogFilmList films={firstRenderFilms} />
-      {catalogMoreButton ? <CatalogMoreButton /> : null}
+      {catalogMoreButtonStatus === CatalogMoreButtonStatus.ShowButton ? <CatalogMoreButton /> : null}
     </section>
   );
 }
@@ -36,9 +40,10 @@ function Catalog({ allFilms, catalogMoreButton, showMoreButton }: ConnectedCompo
 type PropsFromRedux = ConnectedProps<typeof connector>;
 type ConnectedComponentProps = PropsFromRedux;
 
-const mapStateToProps = ({allFilms, catalogMoreButton}: State) => ({
+const mapStateToProps = ({allFilms, catalogMoreButtonStatus, renderedFilmsCount}: State) => ({
   allFilms,
-  catalogMoreButton,
+  catalogMoreButtonStatus,
+  renderedFilmsCount,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<Actions>) => bindActionCreators({

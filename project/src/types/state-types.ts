@@ -2,5 +2,6 @@ import { FilmItem } from './film-types';
 
 export type State = {
   allFilms: FilmItem[],
-  catalogMoreButton: boolean,
+  catalogMoreButtonStatus: string,
+  renderedFilmsCount: number,
 };

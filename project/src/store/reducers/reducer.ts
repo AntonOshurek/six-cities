@@ -7,8 +7,6 @@ const reducer = (state: State = initialState, action: Actions): State => {
   switch (action.type) {
     case ActionTypes.setFilms:
       return {...state, allFilms: action.payload};
-    case ActionTypes.setCatalogMoreButtonStatus:
-      return {...state, catalogMoreButtonStatus: action.payload};
     case ActionTypes.setRenderedFilmsCount:
       return {...state, renderedFilmsCount: action.payload};
     default:

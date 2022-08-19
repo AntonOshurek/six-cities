@@ -15,11 +15,6 @@ export enum AuthorizationStatus {
   Unknown = 'UNKNOWN',
 }
 
-export enum CatalogMoreButtonStatus {
-  ShowButton = 'SHOW_BUTTON',
-  HiddenButton = 'HIDDEN_BUTTON',
-}
-
 export const FILMS_COUNT_PER_STEP = 4;
 
 export const GENRES: string[] = ['All genres', 'Comedies', 'Crime', 'Documentary', 'Dramas', 'Horror', 'Kids & Family', 'Romance', 'Sci-Fi', 'Thrillers'];

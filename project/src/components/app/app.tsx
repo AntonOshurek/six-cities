@@ -41,6 +41,7 @@ function App({filmCard, allFilms, setFilms}: ConnectedComponentProps): JSX.Eleme
     <BrowserRouter>
       <Routes>
         <Route path={AppRoute.ROOT} element={<MainPage filmCard={filmCard}/> } />
+        <Route path={AppRoute.ROOT_SORT} element={<MainPage filmCard={filmCard}/> } />
         <Route path={AppRoute.LOGIN} element={<Login/>} />
 
         <Route path={AppRoute.MOVIE_PAGE} element={<MoviePage/>}>

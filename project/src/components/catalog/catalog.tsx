@@ -2,20 +2,50 @@
 import CatalogGenresList from './catalog-genres-list/catalog-genres-list';
 import CatalogFilmList from './catalog-films-list/catalog-films-list';
 import CatalogMoreButton from './catalog-more-button/catalog-more-button';
+//ROUTING
+import { useParams } from 'react-router-dom';
 //REDUX
 import { connect, ConnectedProps } from 'react-redux';
-//CONSTANTS
-// import { FILMS_COUNT_PER_STEP } from '../../consts/consts';
-// import { CatalogMoreButtonStatus } from '../../consts/consts';
 //TYPES
 import { FilmItem } from '../../types/film-types';
 import { State } from '../../types/state-types';
+//CONSTANTS
+import { sortingNames } from '../../consts/consts';
+
+const sorting = (filmsArray: FilmItem[], sortType: string): FilmItem[] => {
+  let foo: FilmItem[] = [];
+  switch(sortType) {
+    case sortingNames.All:
+      foo = filmsArray.filter((film) => film);
+      break;
+    case sortingNames.Comedies:
+      foo = filmsArray.filter((film) => film.genre === 'Comedy');
+      break;
+    case sortingNames.Romance:
+      foo = filmsArray.filter((film) => film.genre === 'Romance');
+      break;
+    default:
+      foo = filmsArray;
+  }
+  return foo;
+};
 
 
 function Catalog({ allFilms, renderedFilmsCount }: ConnectedComponentProps): JSX.Element {
-  const firstRenderFilms: FilmItem[] = allFilms.slice(0, Math.min(allFilms.length, renderedFilmsCount));
+  const params = useParams();
+  const sortType = params.sort;
 
-  const showMoreButton: boolean = renderedFilmsCount >= allFilms.length;
+  let filtredFilms: FilmItem[] = [];
+
+  if(sortType) {
+    filtredFilms = sorting(allFilms, sortType);
+  } else {
+    filtredFilms = allFilms;
+  }
+
+  const firstRenderFilms: FilmItem[] = filtredFilms.slice(0, Math.min(filtredFilms.length, renderedFilmsCount));
+
+  const showMoreButton: boolean = renderedFilmsCount >= filtredFilms.length;
 
   return (
     <section className="catalog">

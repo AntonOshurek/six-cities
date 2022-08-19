@@ -4,24 +4,22 @@ import CatalogFilmList from './catalog-films-list/catalog-films-list';
 import CatalogMoreButton from './catalog-more-button/catalog-more-button';
 //REDUX
 import { connect, ConnectedProps } from 'react-redux';
-import { State } from '../../types/state-types';
+import { bindActionCreators, Dispatch } from 'redux';
+import { showCatalogMoreButton } from '../../store/actions/actions';
 //CONSTANTS
 import { renderedFilmsCount } from '../../consts/consts';
 //TYPES
 import { FilmItem } from '../../types/film-types';
+import { State } from '../../types/state-types';
+import { Actions } from '../../types/actions-types';
 
-const mapStateToProps = ({allFilms, catalogMoreButton}: State) => ({
-  allFilms,
-  catalogMoreButton,
-});
 
-const connector = connect(mapStateToProps);
-
-type PropsFromRedux = ConnectedProps<typeof connector>;
-type ConnectedComponentProps = PropsFromRedux;
-
-function Catalog({ allFilms, catalogMoreButton }: ConnectedComponentProps): JSX.Element {
+function Catalog({ allFilms, catalogMoreButton, showMoreButton }: ConnectedComponentProps): JSX.Element {
   const firstRenderFilms: FilmItem[] = allFilms.slice(0, Math.min(allFilms.length, renderedFilmsCount));
+  //for first launch
+  if(allFilms.length > renderedFilmsCount) {
+    showMoreButton(true);
+  }
 
   return (
     <section className="catalog">
@@ -33,6 +31,21 @@ function Catalog({ allFilms, catalogMoreButton }: ConnectedComponentProps): JSX.
     </section>
   );
 }
+
+//STORE
+type PropsFromRedux = ConnectedProps<typeof connector>;
+type ConnectedComponentProps = PropsFromRedux;
+
+const mapStateToProps = ({allFilms, catalogMoreButton}: State) => ({
+  allFilms,
+  catalogMoreButton,
+});
+
+const mapDispatchToProps = (dispatch: Dispatch<Actions>) => bindActionCreators({
+  showMoreButton: showCatalogMoreButton,
+}, dispatch);
+
+const connector = connect(mapStateToProps, mapDispatchToProps);
 
 export {Catalog};
 export default connector(Catalog);

@@ -12,7 +12,7 @@ import { State } from '../../types/state-types';
 //CONSTANTS
 import { sortingNames } from '../../consts/consts';
 
-const sorting = (filmsArray: FilmItem[], sortType: string): FilmItem[] => {
+const filter = (filmsArray: FilmItem[], sortType: string): FilmItem[] => {
   let foo: FilmItem[] = [];
   switch(sortType) {
     case sortingNames.All:
@@ -52,13 +52,12 @@ const sorting = (filmsArray: FilmItem[], sortType: string): FilmItem[] => {
 };
 
 function Catalog({ allFilms, renderedFilmsCount }: ConnectedComponentProps): JSX.Element {
-  const params = useParams();
-  const sortType = params.sort;
+  const {filterType} = useParams();
 
   //Sorting films
   let filtredFilms: FilmItem[] = [];
-  if(sortType) {
-    filtredFilms = sorting(allFilms, sortType);
+  if(filterType) {
+    filtredFilms = filter(allFilms, filterType);
   } else {
     filtredFilms = allFilms;
   }

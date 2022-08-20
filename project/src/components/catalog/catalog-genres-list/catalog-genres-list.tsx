@@ -6,28 +6,31 @@ import { bindActionCreators, Dispatch } from 'redux';
 //TYPES
 import { Actions } from '../../../types/actions-types';
 
-import { FILMS_COUNT_PER_STEP, GENRES } from '../../../consts/consts';
+import { FILMS_COUNT_PER_STEP, genreFilters } from '../../../consts/consts';
 
 function CatalogGenresList({setRenderedFilmsCount}: ConnectedComponentProps): JSX.Element {
 
-  const renderItems = (genresArr:string[]): object => {
-    const result = genresArr.map((item) => (
-      <li className="catalog__genres-item catalog__genres-item--active" key={item + 1}>
-        <Link to={`/${item}`} className="catalog__genres-link"
-          onClick={() => setRenderedFilmsCount(FILMS_COUNT_PER_STEP)}
-        >
-          {item}
-        </Link>
-      </li>
-    ));
-    return result;
+  const renderFilters = (): object => {
+    const content = [];
+    for (const filterId in genreFilters) {
+      const item = genreFilters[filterId];
+      content.push(
+        <li className="catalog__genres-item catalog__genres-item--active" key={item.rout + 1}>
+          <Link to={`/${item.rout}`} className="catalog__genres-link"
+            onClick={() => setRenderedFilmsCount(FILMS_COUNT_PER_STEP)}
+          >
+            {item.name}
+          </Link>
+        </li>,
+      );
+    }
+    return content;
   };
 
-  const genreItems: object = renderItems(GENRES);
 
   return (
     <ul className="catalog__genres-list">
-      {genreItems}
+      {renderFilters()}
     </ul>
   );
 }

@@ -1,6 +1,6 @@
 export enum AppRoute {
   ROOT = '/',
-  ROOT_SORT = '/:sort',
+  ROOT_SORT = '/:filterType',
   MY_LIST = '/mylist',
   LOGIN = '/login',
   MOVIE_PAGE = '/films/:filmId',
@@ -32,3 +32,52 @@ export enum sortingNames {
 export const FILMS_COUNT_PER_STEP = 4;
 
 export const GENRES: string[] = ['All genres', 'Comedies', 'Crime', 'Documentary', 'Dramas', 'Horror', 'Kids & Family', 'Romance', 'Sci-Fi', 'Thrillers'];
+
+type Foo = {
+  [filterName: string]: {
+    [key: string]: string,
+  };
+}
+
+export const genreFilters: Foo = {
+  'All': {
+    'rout': 'all',
+    'name': 'All genres',
+  },
+  'Comedies': {
+    'rout': 'Comedies',
+    'name': 'Comedies',
+  },
+  'Crime': {
+    'rout': 'Crime',
+    'name': 'Crime',
+  },
+  'Documentary': {
+    'rout': 'Documentary',
+    'name': 'Documentary',
+  },
+  'Dramas': {
+    'rout': 'Dramas',
+    'name': 'Dramas',
+  },
+  'ComeHorrordies': {
+    'rout': 'Horror',
+    'name': 'Horror',
+  },
+  'KidsFamily': {
+    'rout': 'Kids&Family',
+    'name': 'Kids & Family',
+  },
+  'Romance': {
+    'rout': 'Romance',
+    'name': 'Romance',
+  },
+  'SciFi': {
+    'rout': 'Sci-Fi',
+    'name': 'Sci-Fi',
+  },
+  'Thrillers': {
+    'rout': 'Thrillers',
+    'name': 'Thrillers',
+  },
+};

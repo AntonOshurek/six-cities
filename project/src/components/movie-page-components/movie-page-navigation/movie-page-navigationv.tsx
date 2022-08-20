@@ -4,13 +4,13 @@ type MoviePageNavigationProps = {
   filmId: string,
 }
 
-type Foo = {
+type SetActiveLink = {
   isActive: boolean,
 }
 
 function MoviePageNavigation({filmId}: MoviePageNavigationProps): JSX.Element {
 
-  const setActiveLink = ({isActive}: Foo) => isActive ? 'film-nav__link film-nav__link--active' : 'film-nav__link';
+  const setActiveLink = ({isActive}: SetActiveLink) => isActive ? 'film-nav__link film-nav__link--active' : 'film-nav__link';
 
   return(
     <nav className="film-nav film-card__nav">

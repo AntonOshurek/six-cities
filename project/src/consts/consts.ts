@@ -28,7 +28,7 @@ type GenreFilters = {
 
 export const genreFilters: GenreFilters = {
   'All': {
-    'route': 'all',
+    'route': '',
     'name': 'All genres',
     'key': 1,
   },

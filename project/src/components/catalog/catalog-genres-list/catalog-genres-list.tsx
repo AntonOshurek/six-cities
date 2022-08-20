@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 //REDUX
 import { connect, ConnectedProps } from 'react-redux';
 import { setRenderedFilmsCount as RFC } from '../../../store/actions/actions';
@@ -10,17 +10,23 @@ import { FILMS_COUNT_PER_STEP, genreFilters } from '../../../consts/consts';
 
 function CatalogGenresList({setRenderedFilmsCount}: ConnectedComponentProps): JSX.Element {
 
+  type SetActiveLink = {
+    isActive: boolean,
+  }
+
+  const setActiveLink = ({isActive}: SetActiveLink) => isActive ? 'catalog__genres-link catalog__genres-link--active' : 'catalog__genres-link';
+
   const renderFilters = (): object => {
     const content = [];
     for (const filterId in genreFilters) {
       const item = genreFilters[filterId];
       content.push(
-        <li className="catalog__genres-item catalog__genres-item--active" key={item.key}>
-          <Link to={`/${item.route}`} className="catalog__genres-link"
+        <li className="catalog__genres-item" key={item.key}>
+          <NavLink to={`/${item.route}`} className={setActiveLink}
             onClick={() => setRenderedFilmsCount(FILMS_COUNT_PER_STEP)}
           >
             {item.name}
-          </Link>
+          </NavLink>
         </li>,
       );
     }

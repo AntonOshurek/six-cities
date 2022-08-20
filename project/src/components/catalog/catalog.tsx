@@ -2,6 +2,7 @@
 import CatalogGenresList from './catalog-genres-list/catalog-genres-list';
 import CatalogFilmList from './catalog-films-list/catalog-films-list';
 import CatalogMoreButton from './catalog-more-button/catalog-more-button';
+import CatalogFilmsNotFound from './catalog-films-not-found/catalogFilmsNotFound';
 //ROUTING
 import { useParams } from 'react-router-dom';
 //REDUX
@@ -32,7 +33,7 @@ function Catalog({ allFilms, renderedFilmsCount }: ConnectedComponentProps): JSX
       <h2 className="catalog__title visually-hidden">Catalog</h2>
 
       <CatalogGenresList />
-      <CatalogFilmList films={filmsForRender} />
+      {filmsForRender.length > 0 ? <CatalogFilmList films={filmsForRender} /> : <CatalogFilmsNotFound />}
       {showMoreButton ? null : <CatalogMoreButton />}
     </section>
   );

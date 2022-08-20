@@ -51,20 +51,19 @@ const sorting = (filmsArray: FilmItem[], sortType: string): FilmItem[] => {
   return foo;
 };
 
-
 function Catalog({ allFilms, renderedFilmsCount }: ConnectedComponentProps): JSX.Element {
   const params = useParams();
   const sortType = params.sort;
 
+  //Sorting films
   let filtredFilms: FilmItem[] = [];
-
   if(sortType) {
     filtredFilms = sorting(allFilms, sortType);
   } else {
     filtredFilms = allFilms;
   }
 
-  const firstRenderFilms: FilmItem[] = filtredFilms.slice(0, Math.min(filtredFilms.length, renderedFilmsCount));
+  const filmsForRender: FilmItem[] = filtredFilms.slice(0, Math.min(filtredFilms.length, renderedFilmsCount));
 
   const showMoreButton: boolean = renderedFilmsCount >= filtredFilms.length;
 
@@ -73,7 +72,7 @@ function Catalog({ allFilms, renderedFilmsCount }: ConnectedComponentProps): JSX
       <h2 className="catalog__title visually-hidden">Catalog</h2>
 
       <CatalogGenresList />
-      <CatalogFilmList films={firstRenderFilms} />
+      <CatalogFilmList films={filmsForRender} />
       {showMoreButton ? null : <CatalogMoreButton />}
     </section>
   );

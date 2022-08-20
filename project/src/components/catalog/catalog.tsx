@@ -9,55 +9,16 @@ import { connect, ConnectedProps } from 'react-redux';
 //TYPES
 import { FilmItem } from '../../types/film-types';
 import { State } from '../../types/state-types';
-//CONSTANTS
-import { sortingNames } from '../../consts/consts';
-
-const filter = (filmsArray: FilmItem[], sortType: string): FilmItem[] => {
-  let foo: FilmItem[] = [];
-  switch(sortType) {
-    case sortingNames.All:
-      foo = filmsArray.filter((film) => film);
-      break;
-    case sortingNames.Comedies:
-      foo = filmsArray.filter((film) => film.genre === sortingNames.Comedies);
-      break;
-    case sortingNames.Crime:
-      foo = filmsArray.filter((film) => film.genre === sortingNames.Crime);
-      break;
-    case sortingNames.Documentary:
-      foo = filmsArray.filter((film) => film.genre === sortingNames.Documentary);
-      break;
-    case sortingNames.Dramas:
-      foo = filmsArray.filter((film) => film.genre === sortingNames.Dramas);
-      break;
-    case sortingNames.Horror:
-      foo = filmsArray.filter((film) => film.genre === sortingNames.Horror);
-      break;
-    case sortingNames.KidsFamily:
-      foo = filmsArray.filter((film) => film.genre === sortingNames.KidsFamily);
-      break;
-    case sortingNames.Romance:
-      foo = filmsArray.filter((film) => film.genre === sortingNames.Romance);
-      break;
-    case sortingNames.SciFi:
-      foo = filmsArray.filter((film) => film.genre === sortingNames.SciFi);
-      break;
-    case sortingNames.Thrillers:
-      foo = filmsArray.filter((film) => film.genre === sortingNames.Thrillers);
-      break;
-    default:
-      foo = filmsArray;
-  }
-  return foo;
-};
+//UTILS
+import { filter } from '../../utils/utils';
 
 function Catalog({ allFilms, renderedFilmsCount }: ConnectedComponentProps): JSX.Element {
-  const {filterType} = useParams();
+  const {filterRoute} = useParams();
 
   //Sorting films
   let filtredFilms: FilmItem[] = [];
-  if(filterType) {
-    filtredFilms = filter(allFilms, filterType);
+  if(filterRoute) {
+    filtredFilms = filter(allFilms, filterRoute);
   } else {
     filtredFilms = allFilms;
   }

@@ -5,7 +5,7 @@ import { setRenderedFilmsCount as RFC } from '../../../store/actions/actions';
 import { bindActionCreators, Dispatch } from 'redux';
 //TYPES
 import { Actions } from '../../../types/actions-types';
-
+//CONSTANTS
 import { FILMS_COUNT_PER_STEP, genreFilters } from '../../../consts/consts';
 
 function CatalogGenresList({setRenderedFilmsCount}: ConnectedComponentProps): JSX.Element {
@@ -15,8 +15,8 @@ function CatalogGenresList({setRenderedFilmsCount}: ConnectedComponentProps): JS
     for (const filterId in genreFilters) {
       const item = genreFilters[filterId];
       content.push(
-        <li className="catalog__genres-item catalog__genres-item--active" key={item.rout + 1}>
-          <Link to={`/${item.rout}`} className="catalog__genres-link"
+        <li className="catalog__genres-item catalog__genres-item--active" key={item.key}>
+          <Link to={`/${item.route}`} className="catalog__genres-link"
             onClick={() => setRenderedFilmsCount(FILMS_COUNT_PER_STEP)}
           >
             {item.name}

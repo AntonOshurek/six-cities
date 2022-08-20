@@ -1,6 +1,6 @@
 export enum AppRoute {
   ROOT = '/',
-  ROOT_SORT = '/:filterType',
+  ROOT_SORT = '/:filterRoute',
   MY_LIST = '/mylist',
   LOGIN = '/login',
   MOVIE_PAGE = '/films/:filmId',
@@ -16,68 +16,65 @@ export enum AuthorizationStatus {
   Unknown = 'UNKNOWN',
 }
 
-export enum sortingNames {
-  All = 'all',
-  Comedies = 'Comedies',
-  Crime = 'Crime',
-  Documentary = 'Documentary',
-  Dramas = 'Dramas',
-  Horror = 'Horror',
-  KidsFamily = 'Kids&Family',
-  Romance = 'Romance',
-  SciFi = 'Sci-Fi',
-  Thrillers = 'Thrillers',
-}
-
 export const FILMS_COUNT_PER_STEP = 4;
 
-export const GENRES: string[] = ['All genres', 'Comedies', 'Crime', 'Documentary', 'Dramas', 'Horror', 'Kids & Family', 'Romance', 'Sci-Fi', 'Thrillers'];
-
-type Foo = {
+type GenreFilters = {
   [filterName: string]: {
-    [key: string]: string,
+    readonly 'route': string,
+    readonly 'name': string,
+    readonly 'key': number,
   };
 }
 
-export const genreFilters: Foo = {
+export const genreFilters: GenreFilters = {
   'All': {
-    'rout': 'all',
+    'route': 'all',
     'name': 'All genres',
+    'key': 1,
   },
   'Comedies': {
-    'rout': 'Comedies',
+    'route': 'Comedies',
     'name': 'Comedies',
+    'key': 2,
   },
   'Crime': {
-    'rout': 'Crime',
+    'route': 'Crime',
     'name': 'Crime',
+    'key': 3,
   },
   'Documentary': {
-    'rout': 'Documentary',
+    'route': 'Documentary',
     'name': 'Documentary',
+    'key': 4,
   },
   'Dramas': {
-    'rout': 'Dramas',
+    'route': 'Dramas',
     'name': 'Dramas',
+    'key': 5,
   },
-  'ComeHorrordies': {
-    'rout': 'Horror',
+  'Horror': {
+    'route': 'Horror',
     'name': 'Horror',
+    'key': 6,
   },
   'KidsFamily': {
-    'rout': 'Kids&Family',
+    'route': 'Kids&Family',
     'name': 'Kids & Family',
+    'key': 7,
   },
   'Romance': {
-    'rout': 'Romance',
+    'route': 'Romance',
     'name': 'Romance',
+    'key': 8,
   },
   'SciFi': {
-    'rout': 'Sci-Fi',
+    'route': 'Sci-Fi',
     'name': 'Sci-Fi',
+    'key': 9,
   },
   'Thrillers': {
-    'rout': 'Thrillers',
+    'route': 'Thrillers',
     'name': 'Thrillers',
+    'key': 10,
   },
 };

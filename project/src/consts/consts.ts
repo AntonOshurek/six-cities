@@ -1,3 +1,5 @@
+import { GenreFilters } from '../types/other-types';
+
 export enum AppRoute {
   ROOT = '/',
   ROOT_SORT = '/:filterRoute',
@@ -17,14 +19,6 @@ export enum AuthorizationStatus {
 }
 
 export const FILMS_COUNT_PER_STEP = 4;
-
-type GenreFilters = {
-  [filterName: string]: {
-    readonly 'route': string,
-    readonly 'name': string,
-    readonly 'key': number,
-  };
-}
 
 export const genreFilters: GenreFilters = {
   'All': {

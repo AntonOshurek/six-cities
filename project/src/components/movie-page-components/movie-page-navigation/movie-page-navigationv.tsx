@@ -1,11 +1,9 @@
 import { NavLink } from 'react-router-dom';
+//TYPES
+import { SetActiveLink } from '../../../types/other-types';
 
 type MoviePageNavigationProps = {
   filmId: string,
-}
-
-type SetActiveLink = {
-  isActive: boolean,
 }
 
 function MoviePageNavigation({filmId}: MoviePageNavigationProps): JSX.Element {

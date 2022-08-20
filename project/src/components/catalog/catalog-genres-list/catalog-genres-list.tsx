@@ -5,14 +5,11 @@ import { setRenderedFilmsCount as RFC } from '../../../store/actions/actions';
 import { bindActionCreators, Dispatch } from 'redux';
 //TYPES
 import { Actions } from '../../../types/actions-types';
+import { SetActiveLink } from '../../../types/other-types';
 //CONSTANTS
 import { FILMS_COUNT_PER_STEP, genreFilters } from '../../../consts/consts';
 
 function CatalogGenresList({setRenderedFilmsCount}: ConnectedComponentProps): JSX.Element {
-
-  type SetActiveLink = {
-    isActive: boolean,
-  }
 
   const setActiveLink = ({isActive}: SetActiveLink) => isActive ? 'catalog__genres-link catalog__genres-link--active' : 'catalog__genres-link';
 

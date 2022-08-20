@@ -18,7 +18,7 @@ export enum AuthorizationStatus {
   Unknown = 'UNKNOWN',
 }
 
-export const FILMS_COUNT_PER_STEP = 4;
+export const FILMS_COUNT_PER_STEP = 8;
 
 export const genreFilters: GenreFilters = {
   'All': {

@@ -1,6 +1,8 @@
+import { GenreFilters } from '../types/other-types';
+
 export enum AppRoute {
   ROOT = '/',
-  ROOT_SORT = '/:sort',
+  ROOT_SORT = '/:filterRoute',
   MY_LIST = '/mylist',
   LOGIN = '/login',
   MOVIE_PAGE = '/films/:filmId',
@@ -16,19 +18,57 @@ export enum AuthorizationStatus {
   Unknown = 'UNKNOWN',
 }
 
-export enum sortingNames {
-  All = 'all',
-  Comedies = 'Comedies',
-  Crime = 'Crime',
-  Documentary = 'Documentary',
-  Dramas = 'Dramas',
-  Horror = 'Horror',
-  KidsFamily = 'Kids&Family',
-  Romance = 'Romance',
-  SciFi = 'Sci-Fi',
-  Thrillers = 'Thrillers',
-}
+export const FILMS_COUNT_PER_STEP = 8;
 
-export const FILMS_COUNT_PER_STEP = 4;
-
-export const GENRES: string[] = ['All genres', 'Comedies', 'Crime', 'Documentary', 'Dramas', 'Horror', 'Kids & Family', 'Romance', 'Sci-Fi', 'Thrillers'];
+export const genreFilters: GenreFilters = {
+  'All': {
+    'route': '',
+    'name': 'All genres',
+    'key': 1,
+  },
+  'Comedies': {
+    'route': 'Comedies',
+    'name': 'Comedies',
+    'key': 2,
+  },
+  'Crime': {
+    'route': 'Crime',
+    'name': 'Crime',
+    'key': 3,
+  },
+  'Documentary': {
+    'route': 'Documentary',
+    'name': 'Documentary',
+    'key': 4,
+  },
+  'Dramas': {
+    'route': 'Dramas',
+    'name': 'Dramas',
+    'key': 5,
+  },
+  'Horror': {
+    'route': 'Horror',
+    'name': 'Horror',
+    'key': 6,
+  },
+  'KidsFamily': {
+    'route': 'Kids&Family',
+    'name': 'Kids & Family',
+    'key': 7,
+  },
+  'Romance': {
+    'route': 'Romance',
+    'name': 'Romance',
+    'key': 8,
+  },
+  'SciFi': {
+    'route': 'Sci-Fi',
+    'name': 'Sci-Fi',
+    'key': 9,
+  },
+  'Thrillers': {
+    'route': 'Thrillers',
+    'name': 'Thrillers',
+    'key': 10,
+  },
+};

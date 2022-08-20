@@ -518,10 +518,10 @@ main {
 .catalog__genres-item {
   margin-right: 20px;
   margin-bottom: 20px; }
-  .catalog__genres-item--active .catalog__genres-link {
+  /* .catalog__genres-item--active .catalog__genres-link {
     font-weight: bold; }
     .catalog__genres-item--active .catalog__genres-link::after {
-      display: block; }
+      display: block; } */
   .catalog__genres-item:last-child {
     margin-right: 0; }
 
@@ -545,6 +545,12 @@ main {
     display: none; }
   .catalog__genres-link:hover::after {
     display: block; }
+  .catalog__genres-link--active {
+    font-weight: bold;
+  }
+  .catalog__genres-link--active::after {
+    display: block;
+  }
 
 .catalog__films-list {
   display: -webkit-box;

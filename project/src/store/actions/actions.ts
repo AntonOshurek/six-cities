@@ -11,3 +11,10 @@ export const setRenderedFilmsCount = (newRenderedFilmsCount: number): SetRendere
   type: ActionTypes.setRenderedFilmsCount,
   payload: newRenderedFilmsCount,
 });
+
+export const loadFilms = (films: FilmItem[]) => ({
+  type: ActionTypes.loadFilms,
+  payload: {
+    films,
+  },
+});

@@ -1,7 +1,7 @@
 import axios, {AxiosInstance, AxiosRequestConfig} from 'axios';
 import {getToken} from './token';
 
-const BACKEND_URL = 'https://9.react.pages.academy/guess-melody';
+const BACKEND_URL = 'https://10.react.pages.academy/wtw';
 const REQUEST_TIMEOUT = 5000;
 
 export const createAPI = (): AxiosInstance => {

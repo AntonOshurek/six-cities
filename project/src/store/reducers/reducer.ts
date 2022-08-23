@@ -9,6 +9,8 @@ const reducer = (state: State = initialState, action: Actions): State => {
       return {...state, allFilms: action.payload};
     case ActionTypes.setRenderedFilmsCount:
       return {...state, renderedFilmsCount: action.payload};
+    case ActionTypes.loadFilms:
+      return {...state, allFilms: action.payload};
     default:
       return state;
   }

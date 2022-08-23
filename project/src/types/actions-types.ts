@@ -3,6 +3,7 @@ import type { FilmItem } from '../types/film-types';
 export enum ActionTypes {
   setFilms = 'app/setFilms',
   setRenderedFilmsCount = 'catalog/renderedFilmsCount',
+  loadFilms = 'data/loadFilms',
 }
 
 export type SetAllFilms = {
@@ -15,6 +16,12 @@ export type SetRenderedFilmsCount = {
   payload: number,
 }
 
+export type LoadFilms = {
+  type: ActionTypes.loadFilms,
+  payload: FilmItem[],
+}
+
 //enumeration of all action types
 export type Actions = SetAllFilms |
-SetRenderedFilmsCount;
+SetRenderedFilmsCount |
+LoadFilms;

@@ -1,6 +1,10 @@
 import type { FilmItem } from '../types/film-types';
 import { AuthorizationStatus } from '../consts/consts';
 
+import { ThunkAction, ThunkDispatch } from '@reduxjs/toolkit';
+import { AxiosInstance } from 'axios';
+import { State } from './state-types';
+
 export enum ActionTypes {
   setFilms = 'app/setFilms',
   setRenderedFilmsCount = 'catalog/renderedFilmsCount',
@@ -32,6 +36,10 @@ export type RequireAuthorization = {
 export type RequireLogout = {
   type: ActionTypes.requireLogout,
 }
+
+export type ThunkActionResult<R = Promise<void>> = ThunkAction<R, State, AxiosInstance, Actions>;
+
+export type ThunkAppDispatch = ThunkDispatch<State, AxiosInstance, Actions>;
 
 //enumeration of all action types
 export type Actions = SetAllFilms |

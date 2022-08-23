@@ -1,34 +1,25 @@
-import axios, {AxiosInstance, AxiosResponse, AxiosError} from 'axios';
+import axios, {AxiosInstance, AxiosRequestConfig} from 'axios';
+import {getToken} from './token';
 
-const BACKEND_URL = ' https://8.react.pages.academy/wtw ';
+const BACKEND_URL = 'https://9.react.pages.academy/guess-melody';
 const REQUEST_TIMEOUT = 5000;
 
-enum HttpCode {
-  Unauthorized = 401,
-}
-
-type UnauthorizedCallback = () => void;
-
-export const createAPI = (onUnauthorized: UnauthorizedCallback): AxiosInstance => {
+export const createAPI = (): AxiosInstance => {
   const api = axios.create({
     baseURL: BACKEND_URL,
     timeout: REQUEST_TIMEOUT,
   });
 
-  api.interceptors.request.use(
-    (response: AxiosResponse) => response,
+  api.interceptors.request.use((config: AxiosRequestConfig) => {
+    const token = getToken();
 
-    (error: AxiosError) => {
-      const {response} = error;
+    if (token && config.headers) {
+      config.headers['x-token'] = token;
+    }
 
-      if(response?.status === HttpCode.Unauthorized) {
-        return onUnauthorized();
-      }
-
-      return Promise.reject(error);
-    },
+    return config;
+  },
   );
 
   return api;
-
 };

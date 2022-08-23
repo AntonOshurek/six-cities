@@ -4,6 +4,8 @@ export enum ActionTypes {
   setFilms = 'app/setFilms',
   setRenderedFilmsCount = 'catalog/renderedFilmsCount',
   loadFilms = 'data/loadFilms',
+  requireAuthorization = 'user/requireAuthorization',
+  requireLogout = 'user/requireLogout',
 }
 
 export type SetAllFilms = {

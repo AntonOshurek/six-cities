@@ -1,4 +1,5 @@
 import type { FilmItem } from '../types/film-types';
+import { AuthorizationStatus } from '../consts/consts';
 
 export enum ActionTypes {
   setFilms = 'app/setFilms',
@@ -23,7 +24,18 @@ export type LoadFilms = {
   payload: FilmItem[],
 }
 
+export type RequireAuthorization = {
+  type: ActionTypes.requireAuthorization,
+  payload: AuthorizationStatus,
+}
+
+export type RequireLogout = {
+  type: ActionTypes.requireLogout,
+}
+
 //enumeration of all action types
 export type Actions = SetAllFilms |
 SetRenderedFilmsCount |
-LoadFilms;
+LoadFilms |
+RequireAuthorization |
+RequireLogout;

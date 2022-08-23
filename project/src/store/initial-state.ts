@@ -6,5 +6,5 @@ import { FILMS_COUNT_PER_STEP } from '../consts/consts';
 export const initialState: State = {
   allFilms: [],
   renderedFilmsCount: FILMS_COUNT_PER_STEP,
-  autorizationStatus: AuthorizationStatus.Unknown,
+  authorizationStatus: AuthorizationStatus.Unknown,
 };

@@ -4,5 +4,5 @@ import { AuthorizationStatus } from '../consts/consts';
 export type State = {
   allFilms: FilmItem[],
   renderedFilmsCount: number,
-  autorizationStatus: AuthorizationStatus,
+  authorizationStatus: AuthorizationStatus,
 };

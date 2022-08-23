@@ -36,7 +36,7 @@ type PropsFromRedux = ConnectedProps<typeof connector>;
 type ConnectedComponentProps = PropsFromRedux & AppProps;
 
 function App({filmCard, allFilms, setFilms}: ConnectedComponentProps): JSX.Element {
-  setFilms(allFilms);
+  // setFilms(allFilms);
   return (
     <BrowserRouter>
       <Routes>

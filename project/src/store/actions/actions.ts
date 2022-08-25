@@ -1,5 +1,5 @@
 import type { FilmItem } from '../../types/film-types';
-import type { SetAllFilms, SetRenderedFilmsCount } from '../../types/actions-types';
+import type { SetAllFilms, SetRenderedFilmsCount, LoadFilms } from '../../types/actions-types';
 import { ActionTypes } from '../../types/actions-types';
 
 export const setAllFilms = (films: FilmItem[]): SetAllFilms => ({
@@ -12,9 +12,7 @@ export const setRenderedFilmsCount = (newRenderedFilmsCount: number): SetRendere
   payload: newRenderedFilmsCount,
 });
 
-export const loadFilms = (films: FilmItem[]) => ({
+export const loadFilms = (films: FilmItem[]): LoadFilms => ({
   type: ActionTypes.loadFilms,
-  payload: {
-    films,
-  },
-} as const);
+  payload: films,
+});

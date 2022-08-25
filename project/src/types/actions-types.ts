@@ -37,7 +37,7 @@ export type RequireLogout = {
   type: ActionTypes.requireLogout,
 }
 
-export type ThunkActionResult<R = Promise<void>> = ThunkAction<R, State, AxiosInstance, Actions>;
+export type ThunkActionResult<R = Promise<void>> = ThunkAction<R, State, AxiosInstance, LoadFilms>;
 
 export type ThunkAppDispatch = ThunkDispatch<State, AxiosInstance, Actions>;
 

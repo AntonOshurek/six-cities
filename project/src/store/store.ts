@@ -6,7 +6,6 @@ import { applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 
 import { createAPI } from '../services/api';
-
 const api = createAPI();
 
 export const store = createStore(reducer,

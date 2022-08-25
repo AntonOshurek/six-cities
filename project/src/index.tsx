@@ -7,6 +7,11 @@ import { store } from './store/store';
 //DATA
 import { filmCard, allFilms } from './data/films-data';
 
+import {ThunkAppDispatch} from './types/actions-types';
+import {fetchFilmsAction} from './store/actions/api-actions';
+
+(store.dispatch as ThunkAppDispatch)(fetchFilmsAction());
+
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>

@@ -17,4 +17,4 @@ export const loadFilms = (films: FilmItem[]) => ({
   payload: {
     films,
   },
-});
+} as const);

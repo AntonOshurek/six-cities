@@ -7,4 +7,5 @@ export const initialState: State = {
   allFilms: [],
   renderedFilmsCount: FILMS_COUNT_PER_STEP,
   authorizationStatus: AuthorizationStatus.Unknown,
+  isDataLoaded: false,
 };

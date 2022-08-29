@@ -6,7 +6,13 @@ import { applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 
 import { createAPI } from '../services/api';
-const api = createAPI();
+
+import { requireAuthorization } from './actions/actions';
+import { AuthorizationStatus } from '../consts/consts';
+
+const api = createAPI(
+  () => store.dispatch(requireAuthorization(AuthorizationStatus.NoAuth)),
+);
 
 export const store = createStore(reducer,
   composeWithDevTools(

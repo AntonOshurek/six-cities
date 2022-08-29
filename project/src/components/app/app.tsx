@@ -16,26 +16,26 @@ import { AppRoute, AuthorizationStatus } from '../../consts/consts';
 import { FilmCardData, FilmItem } from '../../types/film-types';
 
 //REDUX
-import { bindActionCreators, Dispatch } from 'redux';
-import { connect, ConnectedProps } from 'react-redux';
-import { setAllFilms } from '../../store/actions/actions';
-import { Actions } from '../../types/actions-types';
+// import { bindActionCreators, Dispatch } from 'redux';
+// import { connect, ConnectedProps } from 'react-redux';
+// import { setAllFilms } from '../../store/actions/actions';
+// import { Actions } from '../../types/actions-types';
 
-const mapDispatchToProps = (dispatch: Dispatch<Actions>) => bindActionCreators({
-  setFilms: setAllFilms,
-}, dispatch);
+// const mapDispatchToProps = (dispatch: Dispatch<Actions>) => bindActionCreators({
+//   setFilms: setAllFilms,
+// }, dispatch);
 
-const connector = connect(null, mapDispatchToProps);
+// const connector = connect(null, mapDispatchToProps);
 
 type AppProps = {
   filmCard: FilmCardData,
   allFilms: FilmItem[],
 }
 
-type PropsFromRedux = ConnectedProps<typeof connector>;
-type ConnectedComponentProps = PropsFromRedux & AppProps;
+// type PropsFromRedux = ConnectedProps<typeof connector>;
+// type ConnectedComponentProps = PropsFromRedux & AppProps;
 
-function App({filmCard, allFilms, setFilms}: ConnectedComponentProps): JSX.Element {
+function App({filmCard, allFilms}: AppProps): JSX.Element {
   // setFilms(allFilms);
   return (
     <BrowserRouter>
@@ -66,5 +66,4 @@ function App({filmCard, allFilms, setFilms}: ConnectedComponentProps): JSX.Eleme
   );
 }
 
-export {App};
-export default connector(App);
+export default App;

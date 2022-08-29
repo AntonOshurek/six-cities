@@ -8,8 +8,9 @@ import { store } from './store/store';
 import { filmCard, allFilms } from './data/films-data';
 
 import {ThunkAppDispatch} from './types/actions-types';
-import {fetchFilmsAction} from './store/actions/api-actions';
+import {checkAuthAction, fetchFilmsAction} from './store/actions/api-actions';
 
+(store.dispatch as ThunkAppDispatch)(checkAuthAction());
 (store.dispatch as ThunkAppDispatch)(fetchFilmsAction());
 
 ReactDOM.render(

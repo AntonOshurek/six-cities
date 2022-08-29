@@ -5,4 +5,5 @@ export type State = {
   allFilms: FilmItem[],
   renderedFilmsCount: number,
   authorizationStatus: AuthorizationStatus,
+  isDataLoaded: boolean,
 };
